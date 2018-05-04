@@ -4,7 +4,8 @@ sudo: required
 dist: trusty
 
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
+- sudo apt-get -qq update
+- sudo apt-get install -y texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
 
 cache:
   directories:
@@ -27,6 +28,7 @@ script:
 
   # gitinfo2 setup... :S
   - wget https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitinfo2.sty
+  - wget https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitexinfo.sty
   - pwd
   - cd .git/hooks
   - wget https://gist.githubusercontent.com/jonaprieto/607fea82f55dba1945ddfcd7248905c3/raw/1b3df605071f16b7a5167efe7923c284cb26dd1c/post-commit
