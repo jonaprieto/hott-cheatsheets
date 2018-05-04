@@ -36,6 +36,7 @@ matrix:
 install:
  - test -z "$LATEXMK" || which latexmk
  - mkdir -p "$HOME"/.cache/latex
+ - echo $HOME
  - cd "$HOME"/.cache/latex
  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/comment/comment.sty
  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/misc/nextpage.sty
@@ -54,14 +55,10 @@ install:
  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/soul/soul.dtx http://mirrors.ctan.org/macros/latex/contrib/soul/soul.ins
  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.dtx http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.ins
  - wget --tries=3 http://mirrors.ctan.org/graphics/pgf/base.zip
- - wget https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitinfo2.sty
- - wget https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitexinfo.sty
- - pwd
- - ls
- - cd ..
- - cd ..
- - pwd
- - cp "$HOME"/.cache/latex/* ./
+ - wget --tries=3 https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitinfo2.sty
+ - wget --tries=3 https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitexinfo.sty
+ - wget --tries=3 https://raw.githubusercontent.com/simhu/cubic/master/mathpartir.sty
+ - cp "$HOME"/.cache/latex/* "$HOME"/jonaprieto/hott-cheatsheet
  - ls
  - unzip stmaryrd && mv stmaryrd/*.{mf,dtx} ./ && latex stmaryrd.dtx
  - unzip mathtools.zip && (cd mathtools && for i in *.dtx; do (mv $i ../ && cd .. && tex $i); done)
@@ -73,18 +70,15 @@ install:
  - unzip base && find base -name "*.sty" -o -name "*.tex" -o -name "*.def" -o -name "*.cfg" | grep -v pgfmanual | xargs cp -t ./
 
 script:
-  # gitinfo2 setup... :S
 
-  - pwd
+  - cd "$HOME"/jonaprieto/hott-cheatsheet
   - cd .git/hooks
-  - wget https://gist.githubusercontent.com/jonaprieto/607fea82f55dba1945ddfcd7248905c3/raw/1b3df605071f16b7a5167efe7923c284cb26dd1c/post-commit
+  - wget --tries=3 https://gist.githubusercontent.com/jonaprieto/607fea82f55dba1945ddfcd7248905c3/raw/1b3df605071f16b7a5167efe7923c284cb26dd1c/post-commit
   - cp post-commit post-merge
   - cp post-commit post-checkout
   - sudo chmod +x post-commit post-merge post-checkout
-  - cd ..
-  - cd ..
-  - git init
+  - cd "$HOME"/jonaprieto/hott-cheatsheet
   - git checkout -b travis-test
   - pwd
-  - wget https://raw.githubusercontent.com/simhu/cubic/master/mathpartir.sty
+
   - make
