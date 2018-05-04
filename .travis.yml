@@ -33,9 +33,9 @@ script:
   - cp post-commit post-merge
   - cp post-commit post-checkout
   - sudo chmod +x post-commit post-merge post-checkout
-  - git init
+  - cd ..
+  - cd ..
   - git checkout master
-  - cd ..
-  - cd ..
   - pwd
+  - wget https://raw.githubusercontent.com/simhu/cubic/master/mathpartir.sty
   - make
