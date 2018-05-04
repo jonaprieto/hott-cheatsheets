@@ -8,7 +8,7 @@ definitions, lemmas, and theorems from the HoTT-Book.
 - **Basics** (Chapter 2):
   - **Direct link: [basics.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.0/basics.pdf)**
 
-  ![](assests/basics-preview.png)
+  ![](assets/basics-preview.png)
 
 -----------------------------------------------------------------------------
 
