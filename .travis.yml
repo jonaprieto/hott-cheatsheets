@@ -33,6 +33,7 @@ script:
   - cp post-commit post-merge
   - cp post-commit post-checkout
   - sudo chmod +x post-commit post-merge post-checkout
+  - git init
   - git checkout master
   - cd ..
   - cd ..
