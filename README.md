@@ -1,4 +1,4 @@
-# HoTT Cheatsheet
+# HoTT Cheatsheet [![Build Status](https://travis-ci.org/jonaprieto/hott-book.svg?branch=master)](https://travis-ci.org/jonaprieto/hott-book)
 
 This is my attempt to have a "little" and practical compendium of some
 definitions, lemmas, and theorems from the HoTT-Book.
