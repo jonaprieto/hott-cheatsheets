@@ -1,3 +1,4 @@
+% modified version of the class https://github.com/timjb/uni-spicker
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cheat-sheet}[2018/06/01 LaTeX class]
 
@@ -36,39 +37,21 @@
 \setenumerate[0]{leftmargin=10pt,itemindent=0pt,itemsep=0pt}
 
 \usepackage{color,xcolor,graphicx,overpic}
-\definecolor{Emph}{rgb}{0.2,0.2,0.8}
-%
-% \renewcommand{\emph}[1]{\textcolor{Emph}{\bf{#1}}}
-% \newcommand{\Emph}[1]{\textcolor{Emph}{#1}}
-% \newcommand{\TODO}[1]{\textcolor{orange}{TODO: #1}}
 
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{linkcolor}{rgb}{0.5,0.5,0.5}
 
-\makeatletter
-\def\url@foostyle{%
-  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
-\makeatother
-
-% % Listeneintrag mit variabler Breite
-% % siehe http://tex.stackexchange.com/questions/30526/two-column-list-different-column-widths
 \newcommand{\miniitem}[2]{%
   \begin{minipage}{#1} {\item #2} \end{minipage}}
-%
-% % List-Item im Fließtext
 \newcommand{\inlineitem}[1]{\textbullet \enspace #1}
 
 \usepackage{ragged2e}
 
 \usepackage{multicol}
 \AtBeginDocument{
-  % Entscheide:
-  %\RaggedRight % Flattersatz mit Silbentrennung
-  \raggedright % Flattersatz ohne Silbentrennung
+  \raggedright
   \footnotesize
   \begin{multicols}{3}
-  % multicol parameters
-  % These lengths are set only within the two main columns
   %\setlength{\columnseprule}{0.25pt}
   \setlength{\premulticols}{1pt}
   \setlength{\postmulticols}{1pt}
