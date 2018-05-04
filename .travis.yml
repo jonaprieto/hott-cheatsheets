@@ -35,7 +35,8 @@ script:
   - sudo chmod +x post-commit post-merge post-checkout
   - cd ..
   - cd ..
-  - git checkout master
+  - git init
+  - git checkout -b travis-test
   - pwd
   - wget https://raw.githubusercontent.com/simhu/cubic/master/mathpartir.sty
   - make
