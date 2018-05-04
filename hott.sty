@@ -42,6 +42,15 @@
 \usepackage[numbered]{bookmark} % add chapter/section numbers to the toc in the pdf metadata
 % \newcounter{chapter}
 
+
+% MACROS FOR FINE TUNING
+\newcommand{\narrowbreak}{}
+\newcommand{\narrowamp}{}
+\newcommand{\narrowequation}[1]{$#1$}
+\newenvironment{narrowmultline}{\csname equation\endcsname}{\csname endequation\endcsname}
+\newenvironment{narrowmultline*}{\csname equation*\endcsname}{\csname endequation*\endcsname}
+
+%%% FORMATTING OPTIONS FOR A4 SIZE
 %%%% MACROS FOR NOTATION %%%%
 % Use these for any notation where there are multiple options.
 
