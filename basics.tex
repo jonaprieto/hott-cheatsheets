@@ -1,0 +1,511 @@
+\documentclass{cheat-sheet}
+
+\usepackage[backref=page,
+            colorlinks,
+            citecolor=linkcolor,
+            linkcolor=linkcolor,
+            urlcolor=linkcolor,
+            unicode,
+            pdfauthor={jonaprieto}, %
+            pdftitle={Homotopy Type Theory - Cheat-Sheet - Basics},
+            pdfsubject={Mathematics},
+            pdfkeywords={type theory, homotopy theory, univalence axiom}]{hyperref}
+\pdfinfo{
+  /Title (HoTT Cheat-Sheet - Basics)
+}
+
+\usepackage{hott}
+
+\begin{document}
+
+\begin{center}
+  {\Large{\underline{\textbf{Homotopy Type Theory}}}} \\[2mm]
+  {\large Basics}
+\end{center}
+% \vspace*{-5mm}
+% \chapter{Homotopy type theory - Chapter 2}
+\setcounter{chapter}{2}
+
+\section{Types are higher groupoids}
+\label{sec:equality}
+
+\begin{lem}\label{lem:opp}
+  For every type $A$ and every $x,y:A$ there is a function
+  \begin{equation*}
+    (x= y)\to(y= x)
+  \end{equation*}
+  denoted $p\mapsto \opp{p}$, such that $\opp{\refl{x}}\jdeq\refl{x}$ for each $x:A$.
+  We call $\opp{p}$ the \define{inverse} of $p$.
+\end{lem}
+
+\begin{lem}\label{lem:concat}
+  For every type $A$ and every $x,y,z:A$ there is a function
+  \begin{equation*}
+  (x= y) \to   (y= z)\to (x=  z)
+  \end{equation*}
+  written $p \mapsto q \mapsto p\ct q$, such that $\refl{x}\ct \refl{x}\jdeq \refl{x}$ for any $x:A$.
+  We call $p\ct q$ the \define{concatenation} or \define{composite} of $p$ and $q$.
+\end{lem}
+
+\begin{center}
+  \medskip
+  \begin{tabular}{ccc}
+    \toprule
+    Equality & Homotopy & $\infty$-Groupoid\\
+    \midrule
+    reflexivity\index{equality!reflexivity of} & constant path & identity morphism\\
+    symmetry\index{equality!symmetry of} & inversion of paths & inverse morphism\\
+    transitivity\index{equality!transitivity of} & concatenation of paths & composition of morphisms\\
+    \bottomrule
+  \end{tabular}
+  \medskip
+\end{center}
+
+\begin{lem}\label{thm:omg}%[The $\omega$-groupoid structure of types]
+  Suppose $A:\type$, that $x,y,z,w:A$ and that $p:x= y$ and $q:y = z$ and $r:z=w$.
+  We have the following:
+  \begin{enumerate}
+  \item $p= p\ct \refl{y}$ and $p = \refl{x} \ct p$.\label{item:omg1}
+  \item $\opp{p}\ct p=  \refl{y}$ and $p\ct \opp{p}= \refl{x}$.\label{item:omg2}
+  \item $\opp{(\opp{p})}= p$.\label{item:omg3}
+  \item $p\ct (q\ct r)=  (p\ct q)\ct r$.\label{item:omg4}
+  \end{enumerate}
+\end{lem}
+
+\begin{thm}[Eckmann--Hilton]\label{thm:EckmannHilton}
+  The composition operation on the second loop space
+  %
+  \begin{equation*}
+    \Omega^2(A)\times \Omega^2(A)\to \Omega^2(A)
+  \end{equation*}
+  is commutative: $\alpha\ct\beta = \beta\ct\alpha$, for any $\alpha, \beta:\Omega^2(A)$.
+  \index{Eckmann--Hilton argument}%
+\end{thm}
+
+\begin{defn} \label{def:pointedtype}
+  A \define{pointed type}
+  \indexsee{pointed!type}{type, pointed}%
+  \indexdef{type!pointed}%
+  $(A,a)$ is a type $A:\type$ together with a point $a:A$, called its \define{basepoint}.
+  \indexdef{basepoint}%
+  We write $\pointed{\type} \defeq \sm{A:\type} A$ for the type of pointed types in the universe $\type$.
+\end{defn}
+
+\begin{defn} \label{def:loopspace}
+  Given a pointed type $(A,a)$, we define the \define{loop space}
+  \indexdef{loop space}%
+  of $(A,a)$ to be the following pointed type:
+  \[\Omega(A,a)\defeq ((\id[A]aa),\refl a).\]
+  An element of it will be called a \define{loop}\indexdef{loop} at $a$.
+  For $n:\N$, the \define{$n$-fold iterated loop space} $\Omega^{n}(A,a)$
+  \indexdef{loop space!iterated}%
+  \indexsee{loop space!n-fold@$n$-fold}{loop space, iterated}%
+  of a pointed type $(A,a)$ is defined recursively by:
+  \begin{align*}
+    \Omega^0(A,a)&\defeq(A,a)\\
+    \Omega^{n+1}(A,a)&\defeq\Omega^n(\Omega(A,a)).
+  \end{align*}
+  An element of it will be called an \define{$n$-loop}
+  \indexdef{loop!n-@$n$-}%
+  \indexsee{n-loop@$n$-loop}{loop, $n$-}%
+  or an \define{$n$-dimensional loop}
+  \indexsee{loop!n-dimensional@$n$-dimensional}{loop, $n$-}%
+  \indexsee{n-dimensional loop@$n$-dimensional loop}{loop, $n$-}%
+  at $a$.
+\end{defn}
+
+\section{Functions are functors}
+\label{sec:functors}
+
+\begin{lem}\label{lem:map}
+  Suppose that $f:A\to B$ is a function.
+  Then for any $x,y:A$ there is an operation
+  \begin{equation*}
+    \apfunc f : (\id[A] x y) \to (\id[B] {f(x)} {f(y)}).
+  \end{equation*}
+  Moreover, for each $x:A$ we have $\apfunc{f}(\refl{x})\jdeq \refl{f(x)}$.
+  \indexdef{application!of function to a path}%
+  \indexdef{path!application of a function to}%
+  \indexdef{function!application to a path of}%
+  \indexdef{action!of a function on a path}%
+\end{lem}
+
+\begin{lem}\label{lem:ap-functor}
+  For functions $f:A\to B$ and $g:B\to C$ and paths $p:\id[A]xy$ and $q:\id[A]yz$, we have:
+  \begin{enumerate}
+  \item $\apfunc f(p\ct q) = \apfunc f(p) \ct \apfunc f(q)$.\label{item:apfunctor-ct}
+  \item $\apfunc f(\opp p) = \opp{\apfunc f (p)}$.\label{item:apfunctor-opp}
+  \item $\apfunc g (\apfunc f(p)) = \apfunc{g\circ f} (p)$.\label{item:apfunctor-compose}
+  \item $\apfunc {\idfunc[A]} (p) = p$.
+  \end{enumerate}
+\end{lem}
+
+\section{Type families are fibrations}
+
+\begin{lem}[Transport]\label{lem:transport}
+  Suppose that $P$ is a type family over $A$ and that $p:\id[A]xy$.
+  Then there is a function $\transf{p}:P(x)\to P(y)$.
+\end{lem}
+
+\begin{lem}[Path lifting property]\label{thm:path-lifting}
+  \indexdef{path!lifting}%
+  \indexdef{lifting!path}%
+  Let $P:A\to\type$ be a type family over $A$ and assume we have $u:P(x)$ for some $x:A$.
+  Then for any $p:x=y$, we have
+  \begin{equation*}
+    \mathsf{lift}(u,p):(x,u)=(y,\trans{p}{u})
+  \end{equation*}
+  in $\sm{x:A}P(x)$, such that $\ap{\proj1}{\mathsf{lift}(u,p)} = p$.
+\end{lem}
+
+\begin{lem}[Dependent map]\label{lem:mapdep}
+  Suppose $f:\prd{x: A} P(x)$; then we have a map
+  \[\apdfunc f : \prd{p:x=y}\big(\id[P(y)]{\trans p{f(x)}}{f(y)}\big).\]
+\end{lem}
+
+\begin{lem}\label{thm:trans-trivial}
+  If $P:A\to\type$ is defined by $P(x) \defeq B$ for a fixed $B:\type$, then for any $x,y:A$ and $p:x=y$ and $b:B$ we have a path
+  \[ \transconst Bpb : \transfib P p b = b. \]
+\end{lem}
+
+\begin{lem}\label{thm:apd-const}
+  For $f:A\to B$ and $p:\id[A]xy$, we have
+  \[ \apdfunc f(p) = \transconst B p{f(x)} \ct \apfunc f (p). \]
+\end{lem}
+
+\begin{lem}\label{thm:transport-concat}
+  Given $P:A\to\type$ with $p:\id[A]xy$ and $q:\id[A]yz$ while $u:P(x)$, we have
+  \[ \trans{q}{\trans{p}{u}} = \trans{(p\ct q)}{u}. \]
+\end{lem}
+
+\begin{lem}\label{thm:transport-compose}
+  For a function $f:A\to B$ and a type family $P:B\to\type$, and any $p:\id[A]xy$ and $u:P(f(x))$, we have
+  \[ \transfib{P\circ f}{p}{u} = \transfib{P}{\apfunc f(p)}{u}. \]
+\end{lem}
+
+\begin{lem}\label{thm:ap-transport}
+  For $P,Q:A\to \type$ and a family of functions $f:\prd{x:A} P(x)\to Q(x)$, and any $p:\id[A]xy$ and $u:P(x)$, we have
+  \[ \transfib{Q}{p}{f_x(u)} = f_y(\transfib{P}{p}{u}). \]
+\end{lem}
+
+\section{Homotopies and equivalences}
+\label{sec:basics-equivalences}
+
+\begin{defn} \label{defn:homotopy}
+  Let $f,g:\prd{x:A} P(x)$ be two sections of a type family $P:A\to\type$.
+  A \define{homotopy}
+  from $f$ to $g$ is a dependent function of type
+  \begin{equation*}
+    (f\htpy g) \defeq \prd{x:A} (f(x)=g(x)).
+  \end{equation*}
+\end{defn}
+
+\begin{lem}\label{lem:homotopy-props}
+  Homotopy is an equivalence relation on each dependent function type $\prd{x:A} P(x)$.
+  That is, we have elements of the types
+  \begin{gather*}
+    \prd{f:\prd{x:A} P(x)} (f\htpy f)\\
+    \prd{f,g:\prd{x:A} P(x)} (f\htpy g) \to (g\htpy f)\\
+    \prd{f,g,h:\prd{x:A} P(x)} (f\htpy g) \to (g\htpy h) \to (f\htpy h).
+  \end{gather*}
+\end{lem}
+
+\begin{lem}\label{lem:htpy-natural}
+  Suppose $H:f\htpy g$ is a homotopy between functions $f,g:A\to B$ and let $p:\id[A]xy$.  Then we have
+  \begin{equation*}
+    H(x)\ct\ap{g}{p}=\ap{f}{p}\ct H(y).
+  \end{equation*}
+  We may also draw this as a commutative diagram:\index{diagram}
+  \begin{align*}
+    \xymatrix{
+      f(x) \ar@{=}[r]^{\ap fp} \ar@{=}[d]_{H(x)} & f(y) \ar@{=}[d]^{H(y)} \\
+      g(x) \ar@{=}[r]_{\ap gp} & g(y)
+    }
+  \end{align*}
+\end{lem}
+
+\begin{cor}\label{cor:hom-fg}
+  Let $H : f \htpy \idfunc[A]$ be a homotopy, with $f : A \to A$. Then for any $x : A$ we have \[ H(f(x)) = \ap f{H(x)}. \]
+  % The above path will be denoted by $\com{H}{f}{x}$.
+\end{cor}
+
+\begin{defn}\label{defn:quasi-inverse}
+  For a function $f:A\to B$, a \define{quasi-inverse}
+  \indexdef{quasi-inverse}%
+  \indexsee{function!quasi-inverse of}{quasi-inverse}%
+  of $f$ is a triple $(g,\alpha,\beta)$ consisting of a function $g:B\to A$ and homotopies
+$\alpha:f\circ g\htpy \idfunc[B]$ and $\beta:g\circ f\htpy \idfunc[A]$.
+\end{defn}
+
+\begin{lem}\label{thm:equiv-eqrel}
+  Type equivalence is an equivalence relation on \type.
+  More specifically:
+  \begin{enumerate}
+  \item For any $A$, the identity function $\idfunc[A]$ is an equivalence; hence $\eqv A A$.
+  \item For any $f:\eqv A B$, we have an equivalence $f^{-1} : \eqv B A$.
+  \item For any $f:\eqv A B$ and $g:\eqv B C$, we have $g\circ f : \eqv A C$.
+  \end{enumerate}
+\end{lem}
+
+% \section{The higher groupoid structure of type formers}
+% \label{sec:computational}
+\stepcounter{section}
+
+\section{Cartesian product types}
+\label{sec:compute-cartprod}
+
+\begin{thm}\label{thm:path-prod}
+  For any $x$ and $y$, the function~\eqref{eq:path-prod} is an equivalence.
+\end{thm}
+
+\begin{equation}\label{eq:path-prod}
+  (\id[A\times B]{x}{y}) \to (\id[A]{\proj1(x)}{\proj1(y)}) \times (\id[B]{\proj2(x)}{\proj2(y)}).
+\end{equation}
+
+
+\begin{thm}\label{thm:trans-prod}
+  In the above situation, we have
+  \[
+  \id[A(w) \times B(w)]
+  {\transfib{A\times B}px}
+  {(\transfib{A}{p}{\proj{1}x}, \transfib{B}{p}{\proj{2}x})}.
+  \]
+\end{thm}
+
+\begin{thm}\label{thm:ap-prod}
+  In the above situation, given $x,y:A\times B$ and $p:\proj1x=\proj1y$ and $q:\proj2x=\proj2y$, we have
+  \[ \id[(f(x)=f(y))]{\ap{f}{\pairpath(p,q)}} {\pairpath(\ap{g}{p},\ap{h}{q})}. \]
+\end{thm}
+
+\section{\texorpdfstring{$\Sigma$}{Σ}-types}
+\label{sec:compute-sigma}
+
+\begin{thm}\label{thm:path-sigma}
+Suppose that $P:A\to\type$ is a type family over a type $A$ and let $w,w':\sm{x:A}P(x)$. Then there is an equivalence
+\begin{equation*}
+\eqvspaced{(w=w')}{\dsm{p:\proj{1}(w)=\proj{1}(w')} \trans{p}{\proj{2}(w)}=\proj{2}(w')}.
+\end{equation*}
+\end{thm}
+
+\begin{cor}\label{thm:eta-sigma}
+  \index{uniqueness!principle, propositional!for dependent pair types}%
+  For $z:\sm{x:A} P(x)$, we have $z = (\proj1(z),\proj2(z))$.
+\end{cor}
+
+\begin{thm}\label{transport-Sigma}
+  Suppose we have type families
+  %
+  \begin{equation*}
+    P:A\to\type
+    \qquad\text{and}\qquad
+    Q:\Parens{\sm{x:A} P(x)}\to\type.
+  \end{equation*}
+  %
+  Then we can construct the type family over $A$ defined by
+  \begin{equation*}
+    x \mapsto \sm{u:P(x)} Q(x,u).
+  \end{equation*}
+  For any path $p:x=y$ and any $(u,z):\sm{u:P(x)} Q(x,u)$ we have
+  \begin{equation*}
+    \trans{p}{u,z}=\big(\trans{p}{u},\,\trans{\pairpath(p,\refl{\trans pu})}{z}\big).
+  \end{equation*}
+\end{thm}
+
+\section{The unit type}
+\label{sec:compute-unit}
+
+\begin{thm}\label{thm:path-unit}
+  For any $x,y:\unit$, we have $\eqv{(x=y)}{\unit}$.
+\end{thm}
+
+\section{\texorpdfstring{$\Pi$}{Π}-types and the function extensionality axiom}
+\label{sec:compute-pi}
+
+\begin{axiom}[Function extensionality]\label{axiom:funext}
+  \indexsee{axiom!function extensionality}{function extensionality}%
+  \indexdef{function extensionality}%
+  For any $A$, $B$, $f$, and $g$, the function~\eqref{eq:happly} is an equivalence.
+\end{axiom}
+
+\begin{equation}\label{eq:happly}
+  \happly : (\id{f}{g}) \to \prd{x:A} (\id[B(x)]{f(x)}{g(x)})
+\end{equation}
+
+In particular, \cref{axiom:funext} implies that~\eqref{eq:happly} has a quasi-inverse
+\[
+\funext : \Parens{\prd{x:A} (\id{f(x)}{g(x)})} \to {(\id{f}{g})}.
+\]
+This function is also referred to as ``function extensionality''.
+
+\begin{lem}\label{thm:dpath-arrow}
+  Given type families $A,B:X\to\type$ and $p:\id[X]xy$, and also $f:A(x)\to B(x)$ and $g:A(y)\to B(y)$, we have an equivalence
+  \[ \eqvspaced{ \big(\trans{p}{f} = {g}\big) } { \prd{a:A(x)}  (\trans{p}{f(a)} = g(\trans{p}{a})) }. \]
+  Moreover, if $q:\trans{p}{f} = {g}$ corresponds under this equivalence to $\widehat q$, then for $a:A(x)$, the path
+  \[ \happly(q,\trans p a) : (\trans p f)(\trans p a) = g(\trans p a)\]
+  is equal to the concatenated path $i\ct j\ct k$, where
+  \begin{itemize}
+  \item $i:(\trans p f)(\trans p a) = \trans p {f (\trans {\opp p}{\trans p a})}$ comes from~\eqref{eq:transport-arrow},
+
+  \begin{align}\label{eq:transport-arrow}
+    \transfib{A\to B}{p}{f} &=
+    \Big(x \mapsto \transfib{B}{p}{f(\transfib{A}{\opp p}{x})}\Big)
+  \end{align}
+
+  \item $j:\trans p {f (\trans {\opp p}{\trans p a})} = \trans p {f(a)}$ comes from \cref{thm:transport-concat,thm:omg}, and
+  \item $k:\trans p {f(a)}= g(\trans p a)$ is $\widehat{q}(a)$.
+  \end{itemize}
+\end{lem}
+
+\begin{lem}\label{thm:dpath-forall}
+  Given type families $A:X\to\type$ and $B:\prd{x:X} A(x)\to\type$ and $p:\id[X]xy$, and also $f:\prd{a:A(x)} B(x,a)$ and $g:\prd{a:A(y)} B(y,a)$, we have an equivalence
+  \[ \eqvspaced{ \big(\trans{p}{f} = {g}\big) } { \Parens{\prd{a:A(x)}  \transfib{\widehat{B}}{\pairpath(p,\refl{\trans pa})}{f(a)} = g(\trans{p}{a}) } } \]
+  with $\widehat{B}$. % as in~\eqref{eq:transport-arrow-families}.
+\end{lem}
+
+\section{Universes and the univalence axiom}
+
+\begin{lem}\label{thm:idtoeqv}
+  For types $A,B:\type$, there is a certain function,
+  \begin{equation}\label{eq:uidtoeqv}
+    \idtoeqv : (\id[\type]AB) \to (\eqv A B),
+  \end{equation}
+  defined in the proof.
+\end{lem}
+
+\begin{axiom}[Univalence]\label{axiom:univalence}
+  \indexdef{univalence axiom}%
+  \indexsee{axiom!univalence}{univalence axiom}%
+  For any $A,B:\type$, the function~\eqref{eq:uidtoeqv} is an equivalence.
+\end{axiom}
+
+In particular, therefore, we have
+  \[
+\eqv{(\id[\type]{A}{B})}{(\eqv A B)}.
+\]
+In particular, univalence means that \emph{equivalent types may be identified}.
+
+\begin{lem}\label{thm:transport-is-ap}
+  For any type family $B:A\to\type$ and $x,y:A$ with a path $p:x=y$ and $u:B(x)$, we have
+  \begin{align*}
+    \transfib{B}{p}{u} &= \transfib{X\mapsto X}{\apfunc{B}(p)}{u}\\
+    &= \idtoeqv(\apfunc{B}(p))(u).
+  \end{align*}
+\end{lem}
+
+\section{Identity type}
+\label{sec:compute-paths}
+
+\begin{thm}\label{thm:paths-respects-equiv}
+  If $f : A \to B$ is an equivalence, then for all $a,a':A$, so is
+  \[\apfunc{f} : (\id[A]{a}{a'}) \to (\id[B]{f(a)}{f(a')}).\]
+\end{thm}
+
+\begin{lem}\label{cor:transport-path-prepost}
+  For any $A$ and $a:A$, with $p:x_1=x_2$, we have
+  %
+  \begin{align*}
+    \transfib{x \mapsto (\id{a}{x})} {p} {q} &= q \ct p
+    & &\text{for $q:a=x_1$,}\\
+    \transfib{x \mapsto (\id{x}{a})} {p} {q} &= \opp {p} \ct q
+    & &\text{for $q:x_1=a$,}\\
+    \transfib{x \mapsto (\id{x}{x})} {p} {q} &= \opp{p} \ct q \ct p
+    & &\text{for $q:x_1=x_1$.}
+  \end{align*}
+\end{lem}
+
+\begin{thm}\label{thm:transport-path}
+  For $f,g:A\to B$, with $p : \id[A]{a}{a'}$ and $q : \id[B]{f(a)}{g(a)}$, we have
+  \begin{equation*}
+    \id[f(a') = g(a')]{\transfib{x \mapsto \id[B]{f(x)}{g(x)}}{p}{q}}
+    {\opp{(\apfunc{f}{p})} \ct q \ct \apfunc{g}{p}}.
+  \end{equation*}
+\end{thm}
+
+\begin{thm}\label{thm:transport-path2}
+  Let $B : A \to \type$ and $f,g : \prd{x:A} B(x)$, with $p : \id[A]{a}{a'}$ and $q : \id[B(a)]{f(a)}{g(a)}$.
+  Then we have
+  \begin{equation*}
+    \transfib{x \mapsto \id[B(x)]{f(x)}{g(x)}}{p}{q} =
+    \opp{(\apdfunc{f}(p))} \ct \apfunc{(\transfibf{B}{p})}(q) \ct \apdfunc{g}(p).
+  \end{equation*}
+\end{thm}
+
+\begin{thm}\label{thm:dpath-path}
+  For $p:\id[A]a{a'}$ with $q:a=a$ and $r:a'=a'$, we have
+  \[ \eqvspaced{ \big(\transfib{x\mapsto (x=x)}{p}{q} = r \big) }{ \big( q \ct p = p \ct r \big). } \]
+\end{thm}
+\begin{proof}
+  Path induction on $p$, followed by the fact that composing with the unit equalities $q\ct 1 = q$ and $r = 1\ct r$ is an equivalence.
+\end{proof}
+
+\section{Coproducts}
+\label{sec:compute-coprod}
+
+\begin{thm}\label{thm:path-coprod}
+  For all $x:A+B$ we have $\eqv{(\inl(a_0)=x)}{\code(x)}$.
+\end{thm}
+
+\begin{rmk}\label{rmk:true-neq-false}
+In particular, since the two-element type $\bool$ is equivalent to $\unit+\unit$, we have $\bfalse\neq\btrue$.
+\end{rmk}
+
+\section{Natural numbers}
+\label{sec:compute-nat}
+
+\begin{thm}\label{thm:path-nat}
+  For all $m,n:\N$ we have $\eqv{(m=n)}{\code(m,n)}$.
+\end{thm}
+
+\section{Example: equality of structures}
+
+\begin{defn}
+Given a type $A$, the type \semigroupstr{A} of \define{semigroup structures}
+\indexdef{semigroup!structure}%
+\index{structure!semigroup}%
+\index{associativity!of semigroup operation}%
+with carrier\index{carrier} $A$ is defined by
+\[
+\semigroupstr{A} \defeq \sm{m:A \to A \to A} \prd{x,y,z:A} m(x,m(y,z)) = m(m(x,y),z).
+\]
+%
+A \define{semigroup}
+\indexdef{semigroup}%
+is a type together with such a structure:
+%
+\[
+\semigroup \defeq \sm{A:\type} \semigroupstr A
+\]
+\end{defn}
+
+% \subsection{Lifting equivalences}
+
+\section{Universal properties}
+\label{sec:universal-properties}
+
+\begin{thm}\label{thm:prod-ump}
+  \index{universal!property!of cartesian product}%
+  \eqref{eq:prod-ump-map} is an equivalence.
+\end{thm}
+\begin{equation}\label{eq:prod-ump-map}
+  (X\to A\times B) \to (X\to A)\times (X\to B)
+\end{equation}
+
+\begin{thm}\label{thm:prod-umpd}
+  \eqref{eq:prod-umpd-map} is an equivalence.
+\end{thm}
+\begin{equation}\label{eq:prod-umpd-map}
+  \Parens{\prd{x:X} (A(x)\times B(x))} \to \Parens{\prd{x:X} A(x)} \times \Parens{\prd{x:X} B(x)}
+\end{equation}
+
+
+\begin{thm}\label{thm:ttac}
+  \index{universal!property!of dependent pair type}%
+  \eqref{eq:sigma-ump-map} is an equivalence.
+\end{thm}
+\begin{equation}
+  \label{eq:sigma-ump-map}
+  \Parens{\prd{x:X}\dsm{a:A(x)} P(x,a)} \to
+  \Parens{\sm{g:\prd{x:X} A(x)} \prd{x:X} P(x,g(x))}.
+\end{equation}
+
+\end{document}

@@ -1,15 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cheat-sheet}[2018/06/01 LaTeX class]
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
-\LoadClass[a4paper,10pt]{article}
+\LoadClass[a4paper,10pt,fleqn]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
 \usepackage[landscape]{geometry}
-\geometry{top=1.5cm,left=1cm,right=1cm,bottom=1cm}
+\geometry{top=1.5cm,left=0.9cm,right=0.6cm,bottom=.9cm}
 
 \setcounter{secnumdepth}{0}
 \pagestyle{empty}
@@ -37,21 +37,18 @@
 
 \usepackage{color,xcolor,graphicx,overpic}
 \definecolor{Emph}{rgb}{0.2,0.2,0.8}
-
-\renewcommand{\emph}[1]{\textcolor{Emph}{\bf{#1}}}
-\newcommand{\Emph}[1]{\textcolor{Emph}{#1}}
-\newcommand{\TODO}[1]{\textcolor{orange}{TODO: #1}}
+%
+% \renewcommand{\emph}[1]{\textcolor{Emph}{\bf{#1}}}
+% \newcommand{\Emph}[1]{\textcolor{Emph}{#1}}
+% \newcommand{\TODO}[1]{\textcolor{orange}{TODO: #1}}
 
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{linkcolor}{rgb}{0.5,0.5,0.5}
 
 \makeatletter
 \def\url@foostyle{%
   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
 \makeatother
-
-%
-% % Name einer Eigenschaft rechts ausgerichtet in Klammern
-\newcommand{\pright}[1]{\hfill ({#1}) \,}
 
 % % Listeneintrag mit variabler Breite
 % % siehe http://tex.stackexchange.com/questions/30526/two-column-list-different-column-widths
@@ -81,13 +78,14 @@
 \AtEndDocument{
   \end{multicols}
 }
+\usepackage{url}
 
 \usepackage{gitinfo2}
 \usepackage{fancyhdr}
 \usepackage[us,12hr]{datetime} % `us' makes \today behave as usual in TeX/LaTeX
 \fancypagestyle{plain}{
 \fancyhf{}
-\rhead{Compiled at \currenttime. Revision\gitRel:\gitAbbrevHash{} (\gitBranch) - \gitAuthorDate}
+\rhead{\color{gray}\footnotesize http://github.com/jonaprieto/hott-cheatsheet.git. Compiled at \currenttime. Revision\gitRel:\gitAbbrevHash{} (\gitBranch) - \gitAuthorDate}
 \rfoot{}
 \lfoot{}
 \renewcommand{\headrulewidth}{0pt}}
