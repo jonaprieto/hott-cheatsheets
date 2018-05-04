@@ -5,8 +5,7 @@ dist: trusty
 
 before_install:
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
-script:
-- pdflatex -interaction=nonstopmode -halt-on-error *.tex
+
 cache:
   directories:
     - $HOME/.cache/latex
@@ -24,4 +23,18 @@ matrix:
            - sed
            - grep
 
-script: make
+script:
+
+  # gitinfo2 setup... :S
+  - tlmgr install gitinfo2
+  - pwd
+  - cd .git/hooks
+  - wget https://gist.githubusercontent.com/jonaprieto/607fea82f55dba1945ddfcd7248905c3/raw/1b3df605071f16b7a5167efe7923c284cb26dd1c/post-commit
+  - cp post-commit post-merge
+  - cp post-commit post-checkout
+  - sudo chmod +x post-commit post-merge post-checkout
+  - git checkout master
+  - cd ..
+  - cd ..
+  - pwd
+  - make
