@@ -11,6 +11,7 @@ addons:
       - curl
       - sed
       - grep
+      - ghostscript
 
 before_install:
 - sudo apt-get -qq update
@@ -33,12 +34,8 @@ matrix:
            - sed
            - grep
 
-# install:
- # - test -z "$LATEXMK" || which latexmk
- # - mkdir -p "$HOME"/.cache/latex
-
 script:
-
+  - cd src/
   - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/comment/comment.sty
   - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/misc/nextpage.sty
   - wget --tries=3 http://mirrors.ctan.org/fonts/stmaryrd.zip
@@ -67,6 +64,7 @@ script:
   - latex soul.ins
   - latex xcolor.ins
   - unzip base && find base -name "*.sty" -o -name "*.tex" -o -name "*.def" -o -name "*.cfg" | grep -v pgfmanual | xargs cp -t ./
+  - cd ..
   - cd .git/hooks
   - wget --tries=3 https://gist.githubusercontent.com/jonaprieto/607fea82f55dba1945ddfcd7248905c3/raw/1b3df605071f16b7a5167efe7923c284cb26dd1c/post-commit
   - cp post-commit post-merge

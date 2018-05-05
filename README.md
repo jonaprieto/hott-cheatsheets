@@ -1,14 +1,19 @@
 # HoTT Cheatsheet [![Build Status](https://travis-ci.org/jonaprieto/hott-cheatsheet.svg?branch=master)](https://travis-ci.org/jonaprieto/hott-cheatsheet)
 
-This is my attempt to have a "little" and practical compendium of some
-definitions, lemmas, and theorems from the HoTT-Book.
+This is my attempt of a "little" and practical compendium of some
+definitions, lemmas, and theorems extracted from the HoTT-Book.
 
 #### Available Cheatsheets
 
 - **Basics** (Chapter 2):
-  - **Direct link: [basics.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.0/basics.pdf)**
+  - **Direct link: [basics.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.1/basics.pdf)**
 
-  ![](assets/basics-preview.png)
+  ![](assets/basics.png)
+
+- **Sets and logic** (Chapter 3):
+  - **Direct link: [logic.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.1/logic.pdf)**
+
+  ![](assets/logic.png)
 
 -----------------------------------------------------------------------------
 
@@ -30,14 +35,13 @@ run `make` in the root directory of this repository.
 
 #### License
 
-This work is licensed under the same license of the book:
+This work is licensed under the same license of the HoTT book, i.e.:
 
 - [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
 
 #### References
 
-HoTT book and its website
-[homotopytypetheory.org](https://homotopytypetheory.org/book/).
+* HoTT book from the website [homotopytypetheory.org](https://homotopytypetheory.org/book/).
 
 ```
     @Book{hottbook,
@@ -47,3 +51,5 @@ HoTT book and its website
       address =   {Institute for Advanced Study},
       year =      2013}
 ```
+
+- The LaTeX sources: [HoTT/book](https://github.com/HoTT/book)
