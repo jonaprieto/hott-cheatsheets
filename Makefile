@@ -12,7 +12,7 @@ docs/%.pdf : src/%.tex
 
 assets/%.png : docs/%.pdf
 	- gs -sDEVICE=png16m \
-		 -r600 \
+		 -r1200 \
 		 -dPDFFitPage=true \
 		 -dDEVICEWIDTHPOINTS=250 \
 		 -dDEVICEHEIGHTPOINTS=150 \
