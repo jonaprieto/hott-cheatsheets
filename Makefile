@@ -6,9 +6,8 @@ all: $(pdfs) $(thumbnails)
 
 docs/%.pdf : src/%.tex
 	- latexmk -cd -e -f -pdf -interaction=nonstopmode -synctex=1 \
-			-output-directory=./../docs/ \
+			-output-directory=./../docs \
 			$<
-	- cd docs/ && latexmk -c
 
 assets/%.png : docs/%.pdf
 	- gs -sDEVICE=png16m \
@@ -24,4 +23,4 @@ assets/%.png : docs/%.pdf
 
 .phony : clean
 clean:
-	- cd docs/ && latexmk -c
+	- cd docs && latexmk -c
