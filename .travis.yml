@@ -1,30 +1,80 @@
-notifications:
-  email: false
-install:
-  # Silent install from conda docs
-  # https://conda.io/docs/user-guide/install/macos.html#install-macos-silent
-  # adapted using
-  # https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
+language: c
 
-  # Needed to check if conda already installed
-  - export PATH="$HOME/miniconda/bin:$PATH"
+sudo: required
+dist: trusty
 
-  # If not yet installed, obtain Miniconda
-  # and tectonic
-  # From tectonic docs
-  # https://tectonic-typesetting.github.io/en-US/install.html#the-anaconda-method
-  - if ! command -v conda > /dev/null; then
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-      bash miniconda.sh -b -p $HOME/miniconda -u;
-      conda config --add channels conda-forge;
-      conda config --set always_yes yes;
-      conda update --all;
-      conda install tectonic;
-    fi
-  - conda info -a
+addons:
+  apt:
+    packages:
+      - texlive
+      - wget
+      - curl
+      - sed
+      - grep
+
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+
 cache:
   directories:
-    - $HOME/miniconda
-    - $HOME/.cache/Tectonic
+    - $HOME/.cache/latex
+
+matrix:
+ include:
+   - env: LATEXMK="yes"
+     addons:
+       apt:
+         packages:
+           - latexmk
+           - texlive
+           - wget
+           - curl
+           - sed
+           - grep
+
+# install:
+ # - test -z "$LATEXMK" || which latexmk
+ # - mkdir -p "$HOME"/.cache/latex
+
 script:
- - tectonic ./basics.tex --print
+
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/comment/comment.sty
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/misc/nextpage.sty
+  - wget --tries=3 http://mirrors.ctan.org/fonts/stmaryrd.zip
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/wallpaper/wallpaper.sty
+  - wget --tries=3 http://mirrors.ctan.org/macros/generic/xstring/xstring.sty
+  - wget --tries=3 http://mirrors.ctan.org/macros/generic/xstring/xstring.tex
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/enumitem/enumitem.sty
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/mathtools.zip
+  - wget --tries=3 http://mirrors.ctan.org/macros/generic/diagrams/xypic.zip
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/etoolbox/etoolbox.def
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/etoolbox/etoolbox.sty
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/titlesec.zip
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/braket/braket.sty
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/supertabular/supertabular.dtx http://mirrors.ctan.org/macros/latex/contrib/supertabular/supertabular.ins
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/soul/soul.dtx http://mirrors.ctan.org/macros/latex/contrib/soul/soul.ins
+  - wget --tries=3 http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.dtx http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.ins
+  - wget --tries=3 http://mirrors.ctan.org/graphics/pgf/base.zip
+  - wget --tries=3 https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitinfo2.sty
+  - wget --tries=3 https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/gitexinfo.sty
+  - wget --tries=3 https://raw.githubusercontent.com/simhu/cubic/master/mathpartir.sty
+  - unzip stmaryrd && mv stmaryrd/*.{mf,dtx} ./ && latex stmaryrd.dtx
+  - unzip mathtools.zip && (cd mathtools && for i in *.dtx; do (mv $i ../ && cd .. && tex $i); done)
+  - unzip xypic.zip && mv xypic/*/* ./
+  - unzip titlesec.zip && mv titlesec/*.{tss,sty,def} ./
+  - latex supertabular.ins
+  - latex soul.ins
+  - latex xcolor.ins
+  - unzip base && find base -name "*.sty" -o -name "*.tex" -o -name "*.def" -o -name "*.cfg" | grep -v pgfmanual | xargs cp -t ./
+  - cd .git/hooks
+  - wget --tries=3 https://gist.githubusercontent.com/jonaprieto/607fea82f55dba1945ddfcd7248905c3/raw/1b3df605071f16b7a5167efe7923c284cb26dd1c/post-commit
+  - cp post-commit post-merge
+  - cp post-commit post-checkout
+  - sudo chmod +x post-commit post-merge post-checkout
+  - cd ..
+  - cd ..
+  - git checkout -b travis-test
+  - pwd
+
+  - make

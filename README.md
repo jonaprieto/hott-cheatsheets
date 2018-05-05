@@ -36,7 +36,7 @@ This work is licensed under the same license of the book:
 
 #### References
 
-All sources of the HoTT book of
+HoTT book and its website
 [homotopytypetheory.org](https://homotopytypetheory.org/book/).
 
 ```
