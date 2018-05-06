@@ -33,6 +33,8 @@ matrix:
            - curl
            - sed
            - grep
+           - ghostscript
+
 
 script:
   - cd src/
