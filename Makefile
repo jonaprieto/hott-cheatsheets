@@ -1,4 +1,4 @@
-sheets := $(wildcard src/*.tex)
+sheets := $(wildcard src/hott-*.tex)
 pdfs   := $(subst src/,docs/,$(subst .tex,.pdf,$(sheets)))
 thumbnails := $(subst src/,assets/,$(subst .tex,.png,$(sheets)))
 

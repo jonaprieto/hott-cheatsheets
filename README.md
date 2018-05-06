@@ -6,14 +6,14 @@ definitions, lemmas, and theorems extracted from the HoTT-Book.
 #### Available Cheatsheets
 
 - **Basics** (Chapter 2):
-  - **Direct link: [basics.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.1/basics.pdf)**
+  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.2/hott-basics.pdf)**
 
-  ![](assets/basics.png)
+  ![](assets/hott-basics.png)
 
 - **Sets and logic** (Chapter 3):
-  - **Direct link: [logic.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.1/logic.pdf)**
+  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.2/hott-logic.pdf)**
 
-  ![](assets/logic.png)
+  ![](assets/hott-logic.png)
 
 -----------------------------------------------------------------------------
 
@@ -27,7 +27,8 @@ to install some packages; see `hott.sty` and `cheat-sheet.cls` for packages that
 version of MacTeX, is confirmed to work once the following packages have been
 installed: `tlmgr`, `install`, `braket`, `comment`, `courier`, `enumitem`,
 `helvetic`, `mathpazo`, `nextpage`, `ntheorem`, `palatino`, `rsfs`, `stmaryrd`,
-`symbol`, `titlesec`, `wallpaper`, `wasy`, `wasysym`, `xstring`, `zapfding`.
+`symbol`, `titlesec`, `wallpaper`, `wasy`, `wasysym`, `xstring`, `zapfding`, `gitinfo2`.
+
 
 - If you have `make` utility and `latexmk` just
 run `make` in the root directory of this repository.
