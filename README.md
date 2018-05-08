@@ -15,6 +15,10 @@ definitions, lemmas, and theorems extracted from the HoTT-Book.
 
   ![](assets/hott-logic.png)
 
+- **Formal type theory** (Appendix):
+  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.2/hott-formal.pdf)**
+
+  ![](assets/hott-formal.png)
 -----------------------------------------------------------------------------
 
 #### Building
