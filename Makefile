@@ -4,10 +4,12 @@ thumbnails := $(subst src/,assets/,$(subst .tex,.png,$(sheets)))
 
 all: $(pdfs) $(thumbnails)
 
+
 docs/%.pdf : src/%.tex
 	- latexmk -cd -e -f -pdf -interaction=nonstopmode -synctex=1 \
-			-output-directory=./../docs \
-			$<
+		-output-directory=./../docs \
+		$<
+	- find docs ! -name *.pdf -maxdepth 1 -type f -delete
 
 assets/%.png : docs/%.pdf
 	- gs -sDEVICE=png16m \
@@ -21,6 +23,10 @@ assets/%.png : docs/%.pdf
 		 -dBATCH -dNOPAUSE \
 		 $<
 
-.phony : clean
-clean:
-	- cd docs && latexmk -c
+.phony: watch
+watch:
+	- watchmedo shell-command \
+		--patterns="*" \
+		--recursive \
+		--command='make' \
+		src

@@ -1,0 +1,15 @@
+\documentclass{cheat-sheet}
+\usepackage{hott}
+\usepackage{subfiles}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+
+\begin{document}
+
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
+
+\subfile{hott-basics.tex}\newpage
+\subfile{hott-logic.tex}
+
+\end{document}

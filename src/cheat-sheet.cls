@@ -15,7 +15,7 @@
 \setcounter{secnumdepth}{0}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt plus 10ex}
+% \setlength{\parskip}{0pt plus 10ex}
 
 \makeatletter
 \renewcommand{\section}{\@startsection{section}{1}{0mm}%
@@ -52,7 +52,6 @@
   \raggedright
   \footnotesize
   \begin{multicols}{3}
-  %\setlength{\columnseprule}{0.25pt}
   \setlength{\premulticols}{1pt}
   \setlength{\postmulticols}{1pt}
   \setlength{\multicolsep}{1pt}
