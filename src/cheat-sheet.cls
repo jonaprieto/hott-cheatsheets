@@ -10,7 +10,7 @@
 \usepackage[english]{babel}
 
 \usepackage[landscape]{geometry}
-\geometry{top=1.5cm,left=0.9cm,right=0.6cm,bottom=.9cm}
+\geometry{top=1cm,left=0.8cm,right=0.6cm,bottom=1.8cm}
 
 \setcounter{secnumdepth}{0}
 \pagestyle{empty}
@@ -67,8 +67,9 @@
 \usepackage[us,12hr]{datetime} % `us' makes \today behave as usual in TeX/LaTeX
 \fancypagestyle{plain}{
 \fancyhf{}
-\rhead{\color{gray}\footnotesize http://github.com/jonaprieto/hott-cheatsheet.git. Compiled at \currenttime. Revision\gitRel:\gitAbbrevHash{} (\gitBranch) - \gitAuthorDate}
-\rfoot{}
+\rhead{}
+\rfoot{\color{gray}Homotopy Type Theory Cheatsheets \gitFirstTagDescribe.
+Available on http://github.com/jonaprieto/hott-cheatsheets.git. Compiled at \currenttime - \gitAuthorDate}
 \lfoot{}
 \renewcommand{\headrulewidth}{0pt}}
 \pagestyle{plain}

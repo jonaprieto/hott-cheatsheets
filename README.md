@@ -1,24 +1,34 @@
-# HoTT Cheatsheet [![Build Status](https://travis-ci.org/jonaprieto/hott-cheatsheet.svg?branch=master)](https://travis-ci.org/jonaprieto/hott-cheatsheet)
+# HoTT Cheatsheets [![Build Status](https://travis-ci.org/jonaprieto/hott-cheatsheets.svg?branch=master)](https://travis-ci.org/jonaprieto/hott-cheatsheets)
 
-This is my attempt of a "little" and practical compendium of some
-definitions, lemmas, and theorems extracted from the HoTT-Book.
+This is an attempt to have some cheatsheets about
+definitions, lemmas, and theorems from the HoTT-Book. In this current stage, we have just removed mostly all the content that is not a definition, lemma or theorem from the [book](https://github.com/HoTT/book).
 
 #### Available Cheatsheets
 
 - **Basics** (Chapter 2):
-  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.2/hott-basics.pdf)**
+  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-basics.pdf)**
 
   ![](assets/hott-basics.png)
 
 - **Sets and logic** (Chapter 3):
-  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.2/hott-logic.pdf)**
+  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-logic.pdf)**
 
   ![](assets/hott-logic.png)
 
+- **Equivalences** (Chapter 4):
+  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-equivalences.pdf)**
+
+  ![](assets/hott-equivalences.png)
+
 - **Formal type theory** (Appendix):
-  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheet/releases/download/v0.1.2/hott-formal.pdf)**
+  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-formal.pdf)**
 
   ![](assets/hott-formal.png)
+
+All cheatsheets:
+
+  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-all.pdf)**
+
 -----------------------------------------------------------------------------
 
 #### Building
