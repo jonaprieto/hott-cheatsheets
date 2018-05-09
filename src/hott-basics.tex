@@ -1656,10 +1656,12 @@ where $A\to B$ denotes abusively the type family $X\to \type$ defined by
 Transporting dependent functions is similar, but more complicated.
 Suppose given $X$ and $p$ as before, type families $A:X\to \type$ and $B:\prd{x:X} (A(x)\to\type)$, and also a dependent function $f : \prd{a:A(x_1)} B(x_1,a)$.
 Then for $a:A(x_2)$, we have
+
 \begin{narrowmultline*}
-  \transfib{\Pi_A(B)}{p}{f}(a) = \narrowbreak
+  \transfib{\Pi_A(B)}{p}{f}(a) =\narrowbreak
   \Transfib{\widehat{B}}{\opp{(\pairpath(\opp{p},\refl{ \trans{\opp p}{a} }))}}{f(\transfib{A}{\opp p}{a})}
 \end{narrowmultline*}
+
 where $\Pi_A(B)$ and $\widehat{B}$ denote respectively the type families
 \begin{equation}\label{eq:transport-arrow-families}
 \begin{array}{rclcl}

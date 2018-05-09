@@ -6,28 +6,28 @@ definitions, lemmas, and theorems from the HoTT-Book. In this current stage, we 
 #### Available Cheatsheets
 
 - **Basics** (Chapter 2):
-  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-basics.pdf)**
+  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.5/hott-basics.pdf)**
 
   ![](assets/hott-basics.png)
 
 - **Sets and logic** (Chapter 3):
-  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-logic.pdf)**
+  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.5/hott-logic.pdf)**
 
   ![](assets/hott-logic.png)
 
 - **Equivalences** (Chapter 4):
-  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-equivalences.pdf)**
+  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.5/hott-equivalences.pdf)**
 
   ![](assets/hott-equivalences.png)
 
 - **Formal type theory** (Appendix):
-  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-formal.pdf)**
+  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.5/hott-formal.pdf)**
 
   ![](assets/hott-formal.png)
 
 All cheatsheets:
 
-  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.4/hott-all.pdf)**
+  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.5/hott-all.pdf)**
 
 -----------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ All cheatsheets:
 
 - A fairly new version of LaTeX.
 [Texlive](http://www.tug.org/texlive/) 2012 is confirmed to work. You might need
-to install some packages; see `hott.sty` and `cheat-sheet.cls` for packages that are used by the book.
+to install some packages; see `hott.sty` for packages that are used by the book.
 
 [BasicTeX](http://www.tug.org/mactex/morepackages.html), which is a minimalistic
 version of MacTeX, is confirmed to work once the following packages have been
