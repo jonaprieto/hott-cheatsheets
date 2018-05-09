@@ -87,6 +87,7 @@ Compiled at \currenttime - \gitAuthorDate}
 % ============================== End ==========================================
 
 \usepackage{hott}
+\input{hott-book.labels}
 
 \usepackage{subfiles}
 \newcommand{\onlyinsubfile}[1]{#1}
@@ -97,15 +98,19 @@ Compiled at \currenttime - \gitAuthorDate}
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
 
+\setcounter{section}{0}
 \subfile{hott-basics.tex}
 \newpage
 
+\setcounter{section}{0}
 \subfile{hott-logic.tex}
 \newpage
 
+\setcounter{section}{0}
 \subfile{hott-equivalences.tex}
 \newpage
 
+\setcounter{section}{0}
 \subfile{hott-formal.tex}
 
 \end{document}
