@@ -1150,12 +1150,12 @@ Thus,~\eqref{eq:qinvtype} is \emph{the type of quasi-inverses of $f$}; we may de
 % \end{enumerate}
 % In \cref{cha:equivalences} we will see that there are many different definitions of $\isequiv(f)$ which satisfy these three properties, but that all of them are equivalent.
 % For now, to convince the reader that such things exist, we mention only the easiest such definition:
-% \begin{equation}\label{eq:isequiv-invertible}
-%   \isequiv(f) \;\defeq\;
-%   \Parens{\sm{g:B\to A} (f\circ g \htpy \idfunc[B])}
-%   \times
-%   \Parens{\sm{h:B\to A} (h\circ f \htpy \idfunc[A])}.
-% \end{equation}
+\begin{equation}\label{eq:isequiv-invertible}
+  \isequiv(f) \;\defeq\;
+  \Parens{\sm{g:B\to A} (f\circ g \htpy \idfunc[B])}
+  \times
+  \Parens{\sm{h:B\to A} (h\circ f \htpy \idfunc[A])}.
+\end{equation}
 % We can show~\ref{item:be1} and~\ref{item:be2} for this definition now.
 % A function $\qinv(f) \to \isequiv (f)$ is easy to define by taking $(g,\alpha,\beta)$ to $(g,\alpha,g,\beta)$.
 % In the other direction, given $(g,\alpha,h,\beta)$, let $\gamma$ be the composite homotopy

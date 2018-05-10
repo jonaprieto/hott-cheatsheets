@@ -9,7 +9,6 @@ docs/%.pdf : src/%.tex
 	- @latexmk -cd -e -f -pdf -interaction=nonstopmode -synctex=1 \
 		-output-directory=./../docs \
 		$<
-	- @find docs ! -name *.pdf -maxdepth 1 -type f -delete
 
 assets/%.png : docs/%.pdf
 	- @rm $@
@@ -32,7 +31,27 @@ watch:
 		--command='make' \
 		src
 
+.phony: clean-auxlatex
+clean-auxlatex:
+	- @find docs ! -name *.pdf -maxdepth 1 -type f -delete
+
 .phony: clean
 clean:
-	- rm assets/*
-	- rm docs/*
+	- @rm *.DS_Store
+	- @rm assets/* docs/*
+	- make clean-auxlatex
+
+.phony: hard
+hard:
+	- make clean
+	- make all
+	- make clean-auxlatex
+
+.phony: version
+version:
+	- make hard
+	- $(eval VERSION := $(shell bash -c 'read -p "Tag version (vX.X.X): " pwd; echo $$pwd'))
+	- $(eval MESSAGE := $(shell bash -c 'read -p "Commit message: " pwd; echo $$pwd'))
+	- @git tag "$(VERSION)" -m "$(MESSAGE)"
+	- @git commit -am "[ $(VERSION) ] $(MESSAGE)"
+	- @@git push origin master --all
