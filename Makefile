@@ -37,7 +37,6 @@ clean-auxlatex:
 
 .phony: clean
 clean:
-	- @rm *.DS_Store
 	- @rm assets/* docs/*
 	- make clean-auxlatex
 

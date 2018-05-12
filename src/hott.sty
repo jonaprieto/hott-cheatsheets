@@ -3,6 +3,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{hott}[2018/06/01 LaTeX class]
 
+\RequirePackage{hyperref}
+
 %%% For table {tab:theorems}
 \usepackage{pifont}
 %%% Multi-Columns for long lists of names
@@ -44,11 +46,11 @@
 
 
 % MACROS FOR FINE TUNING
-\newcommand{\narrowbreak}{\\}
-\newcommand{\narrowamp}{&}
-\newcommand{\narrowequation}[1]{\begin{equation*}#1\end{equation*}}
-\newenvironment{narrowmultline*}{\csname multline*\endcsname}{\csname endmultline*\endcsname}
-\newenvironment{narrowmultline}{\csname multline\endcsname}{\csname endmultline\endcsname}
+\newcommand{\narrowbreak}{}
+\newcommand{\narrowamp}{}
+\newcommand{\narrowequation}[1]{$#1$}
+\newenvironment{narrowmultline}{\csname equation\endcsname}{\csname endequation\endcsname}
+\newenvironment{narrowmultline*}{\csname equation*\endcsname}{\csname endequation*\endcsname}
 
 %%% FORMATTING OPTIONS FOR A4 SIZE
 %%%% MACROS FOR NOTATION %%%%
@@ -565,7 +567,11 @@
 \newcommand{\com}[3]{\mathsf{swap}_{#1,#2}(#3)}
 
 %%% Code/encode/decode
-\newcommand{\code}{\ensuremath{\mathsf{code}}\xspace}
+\ifdefined\code
+  \newcommand{\mcode}{\ensuremath{\mathsf{code}}\xspace}
+\else
+  \newcommand{\code}{\ensuremath{\mathsf{code}}\xspace}
+\fi
 \newcommand{\encode}{\ensuremath{\mathsf{encode}}\xspace}
 \newcommand{\decode}{\ensuremath{\mathsf{decode}}\xspace}
 
@@ -583,8 +589,11 @@
 \newcommand{\Ddiag}{\mathscr{D}}
 
 %%% (pointed) mapping spaces
-\newcommand{\Map}{\mathsf{Map}}
-
+\ifdefined\Map
+  \newcommand{\fMap}{\mathsf{Map}}
+\else
+  \newcommand{\Map}{\mathsf{Map}}
+\fi
 %%% The interval
 \newcommand{\interval}{\ensuremath{I}\xspace}
 \newcommand{\izero}{\ensuremath{0_{\interval}}\xspace}
@@ -635,7 +644,11 @@
 \newcommand{\istype}[1]{\mathsf{is}\mbox{-}{#1}\mbox{-}\mathsf{type}}
 \newcommand{\nplusone}{\ensuremath{(n+1)}}
 \newcommand{\nminusone}{\ensuremath{(n-1)}}
-\newcommand{\fact}{\mathsf{fact}}
+\ifdefined\fact
+  \renewcommand{\fact}{\mathsf{fact}}
+\else
+  \newcommand{\mcode}{\ensuremath{\mathsf{code}}\xspace}
+\fi
 
 %%% Macros for homotopy
 \newcommand{\kbar}{\overline{k}} % Used in van Kampen's theorem
@@ -807,9 +820,11 @@
 %%%% ENUMERATE NUMBERING %%%%
 
 % Number the first level of enumerates as (i), (ii), ...
-\renewcommand{\theenumi}{(\roman{enumi})}
-\renewcommand{\labelenumi}{\theenumi}
-
+\ifdefined\theenumi
+  \renewcommand{\theenumi}{(\roman{enumi})}
+\else
+  \newcommand{\theenumi}{(\roman{enumi})}
+\fi
 
 %%%% MARGINS %%%%
 
