@@ -924,9 +924,12 @@ Sometimes, it is necessary to notate the type family $P$ in which the transport 
 % Thus, for any $x,y:A$ and $p:x=y$ and $f:A\to B$, by concatenating with $\transconst Bp{f(x)}$ and its inverse, respectively, we obtain functions
 % \begin{align}
 %   \big(f(x) = f(y)\big) &\to \big(\trans{p}{f(x)} = f(y)\big)\label{eq:ap-to-apd}
+\stepcounter{thm}
 %   \qquad\text{and} \\
 %   \big(\trans{p}{f(x)} = f(y)\big) &\to \big(f(x) = f(y)\big).\label{eq:apd-to-ap}
+\stepcounter{thm}
 % \end{align}
+
 % In fact, these functions are inverse equivalences (in the sense to be introduced in \cref{sec:basics-equivalences}), and they relate $\apfunc f (p)$  to $\apdfunc f (p)$.
 
 \begin{lem}\label{thm:apd-const}
@@ -1013,6 +1016,7 @@ The following proofs are left to the reader.
 \end{lem}
 
 % This is judgmental and is \cref{ex:composition}.
+\stepcounter{lem}
 % \begin{lem}
 %   Composition is associative and unital up to homotopy.
 %   That is:
@@ -1430,7 +1434,7 @@ Thus,~\eqref{eq:qinvtype} is \emph{the type of quasi-inverses of $f$}; we may de
 % \index{fibration}%
 % \index{total!space}%
 % Thus, we are saying that a path $w=w'$ in the total space determines (and is determined by) a path $p:\proj1(w)=\proj1(w')$ in $A$ together with a path from $\proj2(w)$ to $\proj2(w')$ lying over $p$, which seems sensible.
-%
+\stepcounter{thm}
 % \begin{rmk}
 %   Note that if we have $x:A$ and $u,v:P(x)$ such that $(x,u)=(x,v)$, it does not follow that $u=v$.
 %   All we can conclude is that there exists $p:x=x$ such that $\trans p u = v$.
@@ -1440,6 +1444,7 @@ Thus,~\eqref{eq:qinvtype} is \emph{the type of quasi-inverses of $f$}; we may de
 % The next theorem states that we can also reverse this process.
 % Since it is a direct generalization of \cref{thm:path-prod}, we will be more concise.
 %
+
 \begin{thm}\label{thm:path-sigma}
 Suppose that $P:A\to\type$ is a type family over a type $A$ and let $w,w':\sm{x:A}P(x)$. Then there is an equivalence
 \begin{equation*}
