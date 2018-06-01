@@ -5,13 +5,13 @@ thumbnails := $(subst src/,assets/,$(subst .tex,.png,$(sheets)))
 all: $(pdfs) $(thumbnails)
 
 docs/%.pdf : src/%.tex
-	- @rm $@
+	- @rm -f $@
 	- @latexmk -cd -e -f -pdf -interaction=nonstopmode -synctex=1 \
 		-output-directory=./../docs \
 		$<
 
 assets/%.png : docs/%.pdf
-	- @rm $@
+	- @rm -f $@
 	- @gs -sDEVICE=png16m \
 		 -r1200 \
 		 -dPDFFitPage=true \
@@ -37,7 +37,7 @@ clean-auxlatex:
 
 .phony: clean
 clean:
-	- @rm assets/* docs/*
+	- @rm -f assets/* docs/*
 	- make clean-auxlatex
 
 .phony: hard

@@ -1518,8 +1518,8 @@ Suppose that $P:A\to\type$ is a type family over a type $A$ and let $w,w':\sm{x:
 % elimination forms (\projpath{1} and \projpath{2}), and the equivalence
 % as giving a propositional computation rule and uniqueness principle for these.
 %
-% Note that the lifted path $\mathsf{lift}(u,p)$  of $p:x=y$ at $u:P(x)$ defined in \cref{thm:path-lifting} may be identified with the special case of the introduction form
-% \[\pairpath(p,\refl{\trans p u}):(x,u) = (y,\trans p u).\]
+Note that the lifted path $\mathsf{lift}(u,p)$  of $p:x=y$ at $u:P(x)$ defined in \cref{thm:path-lifting} may be identified with the special case of the introduction form
+\[\pairpath(p,\refl{\trans p u}):(x,u) = (y,\trans p u).\]
 % \index{transport!in dependent pair types}%
 % This appears in the statement of action of transport on $\Sigma$-types, which is also a generalization of the action for binary cartesian products:
 
@@ -1662,10 +1662,10 @@ Transporting dependent functions is similar, but more complicated.
 Suppose given $X$ and $p$ as before, type families $A:X\to \type$ and $B:\prd{x:X} (A(x)\to\type)$, and also a dependent function $f : \prd{a:A(x_1)} B(x_1,a)$.
 Then for $a:A(x_2)$, we have
 
-\begin{narrowmultline*}
-  \transfib{\Pi_A(B)}{p}{f}(a) =\narrowbreak
+\begin{mathparpagebreakable}
+  \transfib{\Pi_A(B)}{p}{f}(a) = \narrowbreak
   \Transfib{\widehat{B}}{\opp{(\pairpath(\opp{p},\refl{ \trans{\opp p}{a} }))}}{f(\transfib{A}{\opp p}{a})}
-\end{narrowmultline*}
+\end{mathparpagebreakable}
 
 where $\Pi_A(B)$ and $\widehat{B}$ denote respectively the type families
 \begin{equation}\label{eq:transport-arrow-families}
@@ -2511,10 +2511,10 @@ defined as before by $f \mapsto (\proj1 \circ f, \proj2\circ f)$.
 % \indexsee{terminal!type}{type, unit}%
 %
 % \indexdef{pullback}%
-% For pullbacks, the expected explicit construction works: given $f:A\to C$ and $g:B\to C$, we define
-% \begin{equation}
-%   A\times_C B \defeq \sm{a:A}{b:B} (f(a)=g(b)).\label{eq:defn-pullback}
-% \end{equation}
+For pullbacks, the expected explicit construction works: given $f:A\to C$ and $g:B\to C$, we define
+\begin{equation}
+  A\times_C B \defeq \sm{a:A}{b:B} (f(a)=g(b)).\label{eq:defn-pullback}
+\end{equation}
 % In \cref{ex:pullback} we ask the reader to verify this.
 % Some more general homotopy limits can be constructed in a similar way, but for colimits we will need a new ingredient; see \cref{cha:hits}.
 %
@@ -2593,10 +2593,12 @@ defined as before by $f \mapsto (\proj1 \circ f, \proj2\circ f)$.
 %
 % \sectionExercises
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:basics:concat}
 %   Show that the three obvious proofs of \cref{lem:concat} are pairwise equal.
 % \end{ex}
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:eq-proofs-commute}
 %   Show that the three equalities of proofs constructed in the previous exercise form a commutative triangle.
 %   In other words, if the three definitions of concatenation are denoted by $(p \mathbin{\ct_1} q)$, $(p\mathbin{\ct_2} q)$, and $(p\mathbin{\ct_3} q)$, then the concatenated equality
@@ -2604,65 +2606,72 @@ defined as before by $f \mapsto (\proj1 \circ f, \proj2\circ f)$.
 %   is equal to the equality $(p\mathbin{\ct_1} q) = (p\mathbin{\ct_3} q)$.
 % \end{ex}
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:fourth-concat}
 %   Give a fourth, different, proof of \cref{lem:concat}, and prove that it is equal to the others.
 % \end{ex}
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:npaths}
 %   Define, by induction on $n$, a general notion of \define{$n$-dimensional path}\index{path!n-@$n$-} in a type $A$, simultaneously with the type of boundaries for such paths.
 % \end{ex}
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:ap-to-apd-equiv-apd-to-ap}
 %   Prove that the functions~\eqref{eq:ap-to-apd} and~\eqref{eq:apd-to-ap} are inverse equivalences.
 %   % and that they take $\apfunc f(p)$ to $\apdfunc f (p)$ and vice versa. (that was \cref{thm:apd-const})
 % \end{ex}
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:equiv-concat}
 %   Prove that if $p:x=y$, then the function $(p\ct \blank):(y=z) \to (x=z)$ is an equivalence.
 % \end{ex}
 
+\stepcounter{ex}
 % \begin{ex}\label{ex:ap-sigma}
 %   State and prove a generalization of \cref{thm:ap-prod} from cartesian products to $\Sigma$-types.
 % \end{ex}
 %
+\stepcounter{ex}
 % \begin{ex}\label{ex:ap-coprod}
 %   State and prove an analogue of \cref{thm:ap-prod} for coproducts.
 % \end{ex}
 %
-% \begin{ex}\label{ex:coprod-ump}
-%   \index{universal!property!of coproduct}%
-%   Prove that coproducts have the expected universal property,
-%   \[ \eqv{(A+B \to X)}{(A\to X)\times (B\to X)}. \]
-%   Can you generalize this to an equivalence involving dependent functions?
-% \end{ex}
+
+\begin{ex}\label{ex:coprod-ump}
+  \index{universal!property!of coproduct}%
+  Prove that coproducts have the expected universal property,
+  \[ \eqv{(A+B \to X)}{(A\to X)\times (B\to X)}. \]
+  % Can you generalize this to an equivalence involving dependent functions?
+\end{ex}
 %
-% \begin{ex}\label{ex:sigma-assoc}
-%   Prove that $\Sigma$-types are ``associative'',
-%   \index{associativity!of Sigma-types@of $\Sigma$-types}%
-%   in that for any $A:\UU$ and families $B:A\to\UU$ and $C:(\sm{x:A} B(x))\to\UU$, we have
-%   \[\eqvspaced{\Parens{\sm{x:A}{y:B(x)} C(\pairr{x,y})}}{\Parens{\sm{p:\sm{x:A}B(x)} C(p)}}. \]
-% \end{ex}
+\begin{ex}\label{ex:sigma-assoc}
+  Prove that $\Sigma$-types are ``associative'',
+  \index{associativity!of Sigma-types@of $\Sigma$-types}%
+  in that for any $A:\UU$ and families $B:A\to\UU$ and $C:(\sm{x:A} B(x))\to\UU$, we have
+  \[\eqvspaced{\Parens{\sm{x:A}{y:B(x)} C(\pairr{x,y})}}{\Parens{\sm{p:\sm{x:A}B(x)} C(p)}}. \]
+\end{ex}
 %
-% \begin{ex}\label{ex:pullback}
-%   A (homotopy) \define{commutative square}
-%   \indexdef{commutative!square}%
-%   \begin{equation*}
-%   \vcenter{\xymatrix{
-%       P\ar[r]^h\ar[d]_k &
-%       A\ar[d]^f\\
-%       B\ar[r]_g &
-%       C
-%       }}
-%   \end{equation*}
-%   consists of functions $f$, $g$, $h$, and $k$ as shown, together with a path $f \circ h= g \circ k$.
-%   Note that this is exactly an element of the pullback $(P\to A) \times_{P\to C} (P\to B)$ as defined in~\eqref{eq:defn-pullback}.
-%   A commutative square is called a (homotopy) \define{pullback square}
-%   \indexdef{pullback}%
-%   if for any $X$, the induced map
-%   \[ (X\to P) \to (X\to A) \times_{(X\to C)} (X\to B) \]
-%   is an equivalence.
+\begin{ex}\label{ex:pullback}
+  A (homotopy) \define{commutative square}
+  \indexdef{commutative!square}%
+  \begin{equation*}
+  \vcenter{\xymatrix{
+      P\ar[r]^h\ar[d]_k &
+      A\ar[d]^f\\
+      B\ar[r]_g &
+      C
+      }}
+  \end{equation*}
+  consists of functions $f$, $g$, $h$, and $k$ as shown, together with a path $f \circ h= g \circ k$.
+  Note that this is exactly an element of the pullback $(P\to A) \times_{P\to C} (P\to B)$ as defined in~\eqref{eq:defn-pullback}.
+  A commutative square is called a (homotopy) \define{pullback square}
+  \indexdef{pullback}%
+  if for any $X$, the induced map
+  \[ (X\to P) \to (X\to A) \times_{(X\to C)} (X\to B) \]
+  is an equivalence.
 %   Prove that the pullback $P \defeq A\times_C B$ defined in~\eqref{eq:defn-pullback} is the corner of a pullback square.
-% \end{ex}
+\end{ex}
 %
 % \begin{ex}\label{ex:pullback-pasting}
 %   Suppose given two commutative squares
