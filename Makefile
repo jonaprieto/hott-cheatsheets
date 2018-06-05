@@ -54,4 +54,4 @@ version:
 	- @git tag "$(VERSION)" -m "$(MESSAGE)"
 	- @git add .
 	- @git commit -am "[ $(VERSION) ] $(MESSAGE)"
-	- @@git push origin master --all
+	- @@git push origin master --tags
