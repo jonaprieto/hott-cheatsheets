@@ -6,28 +6,33 @@ definitions, lemmas, and theorems from the HoTT-Book. In this current stage, we 
 #### Available Cheatsheets
 
 - **Basics** (Chapter 2):
-  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.6/hott-basics.pdf)**
+  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-basics.pdf)**
 
   ![](assets/hott-basics.png)
 
 - **Sets and logic** (Chapter 3):
-  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.6/hott-logic.pdf)**
+  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-logic.pdf)**
 
   ![](assets/hott-logic.png)
 
 - **Equivalences** (Chapter 4):
-  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.6/hott-equivalences.pdf)**
+  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-equivalences.pdf)**
 
   ![](assets/hott-equivalences.png)
 
+- **Categories** (Chapter 9): (missing some references)
+  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-categories.pdf)**
+
+  ![](assets/hott-categories.png)
+
 - **Formal type theory** (Appendix):
-  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.6/hott-formal.pdf)**
+  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-formal.pdf)**
 
   ![](assets/hott-formal.png)
 
 All cheatsheets:
 
-  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.6/hott-all.pdf)**
+  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-all.pdf)**
 
 -----------------------------------------------------------------------------
 
