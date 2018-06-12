@@ -21,7 +21,7 @@ definitions, lemmas, and theorems from the HoTT-Book. In this current stage, we 
   ![](assets/hott-equivalences.png)
 
 - **Categories** (Chapter 9): (missing some references)
-  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-categories.pdf)**
+  - **Direct link: [hott-categories.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-categories.pdf)**
 
   ![](assets/hott-categories.png)
 
