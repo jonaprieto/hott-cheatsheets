@@ -5,6 +5,12 @@ definitions, lemmas, and theorems from the HoTT-Book. In this current stage, we 
 
 #### Available Cheatsheets
 
+All cheatsheets:
+
+  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-all.pdf)**
+
+Separately:
+
 - **Basics** (Chapter 2):
   - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-basics.pdf)**
 
@@ -29,10 +35,6 @@ definitions, lemmas, and theorems from the HoTT-Book. In this current stage, we 
   - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-formal.pdf)**
 
   ![](assets/hott-formal.png)
-
-All cheatsheets:
-
-  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.8/hott-all.pdf)**
 
 -----------------------------------------------------------------------------
 
