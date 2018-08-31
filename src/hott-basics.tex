@@ -1593,12 +1593,12 @@ Note that the lifted path $\mathsf{lift}(u,p)$  of $p:x=y$ at $u:P(x)$ defined i
 % \index{type!dependent function|(}%
 % \index{type!function|(}%
 % \index{homotopy|(}%
-% Given a type $A$ and a type family $B : A \to \type$, consider the dependent function type $\prd{x:A}B(x)$.
-% We expect the type $f=g$ of paths from $f$ to $g$ in $\prd{x:A} B(x)$ to be equivalent to
-% the type of pointwise paths:\index{pointwise!equality of functions}
-% \begin{equation}
-%   \eqvspaced{(\id{f}{g})}{\Parens{\prd{x:A} (\id[B(x)]{f(x)}{g(x)})}}.\label{eq:path-forall}
-% \end{equation}
+Given a type $A$ and a type family $B : A \to \type$, consider the dependent function type $\prd{x:A}B(x)$.
+We expect the type $f=g$ of paths from $f$ to $g$ in $\prd{x:A} B(x)$ to be equivalent to
+the type of pointwise paths:\index{pointwise!equality of functions}
+\begin{equation}
+ \eqvspaced{(\id{f}{g})}{\Parens{\prd{x:A} (\id[B(x)]{f(x)}{g(x)})}}.\label{eq:path-forall}
+\end{equation}
 % From a traditional perspective, this would say that two functions which are equal at each point are equal as functions.
 % \index{continuity of functions in type theory@``continuity'' of functions in type theory}%
 % From a topological perspective, it would say that a path in a function space is the same as a continuous homotopy.
