@@ -51,7 +51,6 @@ version:
 	- make hard
 	- $(eval VERSION := $(shell bash -c 'read -p "Tag version (vX.X.X): " pwd; echo $$pwd'))
 	- $(eval MESSAGE := $(shell bash -c 'read -p "Commit message: " pwd; echo $$pwd'))
-	- @git tag "$(VERSION)" -m "$(MESSAGE)"
+	- @git tag "v$(VERSION)" -m "$(MESSAGE)"
 	- @git add .
 	- @git commit -am "[ $(VERSION) ] $(MESSAGE)"
-	- @@git push origin master --tags
