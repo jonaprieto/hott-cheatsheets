@@ -1192,130 +1192,130 @@ of $A$.
 
 % \sectionExercises
 %
-% \begin{ex}\label{ex:equiv-functor-set}
-%   Prove that if $\eqv A B$ and $A$ is a set, then so is $B$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:isset-coprod}
-%   Prove that if $A$ and $B$ are sets, then so is $A+B$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:isset-sigma}
-%   Prove that if $A$ is a set and $B:A\to \type$ is a type family such that $B(x)$ is a set for all $x:A$, then $\sm{x:A} B(x)$ is a set.
-% \end{ex}
-%
-% \begin{ex}\label{ex:prop-endocontr}
-%   Show that $A$ is a mere proposition if and only if $A\to A$ is contractible.
-% \end{ex}
-%
-% \begin{ex}\label{ex:prop-inhabcontr}
-%   Show that $\eqv{\isprop(A)}{(A\to\iscontr(A))}$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-mereprop}
-%   Show that if $A$ is a mere proposition, then so is $A+(\neg A)$.
-%   Thus, there is no need to insert a propositional truncation in~\eqref{eq:lem}.
-% \end{ex}
-%
-% \begin{ex}\label{ex:disjoint-or}
-%   More generally, show that if $A$ and $B$ are mere propositions and $\neg(A\times B)$, then $A+B$ is also a mere proposition.
-% \end{ex}
+\begin{ex}\label{ex:equiv-functor-set}
+  Prove that if $\eqv A B$ and $A$ is a set, then so is $B$.
+\end{ex}
 
-% \begin{ex}\label{ex:hprop-iff-equiv}
-%   Show that if $A$ and $B$ are mere propositions such that $A\to B$ and $B\to A$, then $\eqv A B$.
-% \end{ex}
+\begin{ex}\label{ex:isset-coprod}
+  Prove that if $A$ and $B$ are sets, then so is $A+B$.
+\end{ex}
 
-% \begin{ex}\label{ex:isprop-isprop}
-%   Show that for any type $A$, the types $\isprop(A)$ and $\isset(A)$ are mere propositions.
-% \end{ex}
+\begin{ex}\label{ex:isset-sigma}
+  Prove that if $A$ is a set and $B:A\to \type$ is a type family such that $B(x)$ is a set for all $x:A$, then $\sm{x:A} B(x)$ is a set.
+\end{ex}
 
-% \begin{ex}\label{ex:prop-eqvtrunc}
-%   Show that if $A$ is already a mere proposition, then $\eqv A{\brck{A}}$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:brck-qinv}
-%   Assuming that some type $\isequiv(f)$ satisfies conditions~\ref{item:be1}--\ref{item:be3} of \cref{sec:basics-equivalences}, show that the type $\brck{\qinv(f)}$ satisfies the same conditions and is equivalent to $\isequiv(f)$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-impl-prop-equiv-bool}
-%   Show that if \LEM{} holds, then the type $\prop \defeq \sm{A:\type} \isprop(A)$ is equivalent to \bool.
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-impred}
-%   Show that if $\UU_{i+1}$ satisfies \LEM{}, then the canonical inclusion $\prop_{\UU_i} \to \prop_{\UU_{i+1}}$ is an equivalence.
-% \end{ex}
-%
-% \begin{ex}\label{ex:not-brck-A-impl-A}
-%   Show that it is not the case that for all $A:\type$ we have $\brck{A} \to A$.
-%   (However, there can be particular types for which $\brck{A}\to A$.
-%   \cref{ex:brck-qinv} implies that $\qinv(f)$ is such.)
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-impl-simple-ac}
-%   \index{axiom!of choice}%
-%   Show that if \LEM{} holds, then for all $A:\type$ we have $\bbrck{(\brck A \to A)}$.
-%   (This property is a very simple form of the axiom of choice, which can fail in the absence of \LEM{}; see~\cite{krausgeneralizations}.)
-% \end{ex}
-%
-% \begin{ex}\label{ex:naive-lem-impl-ac}
-%   We showed in \cref{thm:not-lem} that the following naive form of \LEM{} is inconsistent with univalence:
-%   \[ \prd{A:\type} (A+(\neg A)) \]
-%   In the absence of univalence, this axiom is consistent.
-%   However, show that it implies the axiom of choice~\eqref{eq:ac}.
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-brck}
-%   Show that assuming \LEM{}, the double negation $\neg \neg A$ has the same universal property as the propositional truncation $\brck A$, and is therefore equivalent to it.
-%   Thus, under \LEM{}, the propositional truncation can be defined rather than taken as a separate type former.
-% \end{ex}
-%
-% \begin{ex}\label{ex:impred-brck}
-%   \index{propositional!resizing}%
-%   Show that if we assume propositional resizing as in \cref{subsec:prop-subsets}, then the type
-%   \[\prd{P:\prop} \Parens{(A\to P)\to P}\]
-%   has the same universal property as $\brck A$.
-%   Thus, we can also define the propositional truncation in this case.
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-impl-dn-commutes}
-%   Assuming \LEM{}, show that double negation commutes with universal quantification of mere propositions over sets.
-%   That is, show that if $X$ is a set and each $Y(x)$ is a mere proposition, then \LEM{} implies
-%   \begin{equation}
-%     \eqv{\Parens{\prd{x:X} \neg\neg Y(x)}}{\Parens{\neg\neg \prd{x:X} Y(x)}}.\label{eq:dnshift}
-%   \end{equation}
-%   Observe that if we assume instead that each $Y(x)$ is a set, then~\eqref{eq:dnshift} becomes equivalent to the axiom of choice~\eqref{eq:epis-split}.
-% \end{ex}
-%
-% \begin{ex}\label{ex:prop-trunc-ind}
-%   \index{induction principle!for truncation}%
-%   Show that the rules for the propositional truncation given in \cref{subsec:prop-trunc} are sufficient to imply the following induction principle: for any type family $B:\brck A \to \type$ such that each $B(x)$ is a mere proposition, if for every $a:A$ we have $B(\bproj a)$, then for every $x:\brck A$ we have $B(x)$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:lem-ldn}
-%   Show that the law of excluded middle~\eqref{eq:lem} and the law of double negation~\eqref{eq:ldn} are logically equivalent.
-% \end{ex}
-%
-% \begin{ex}\label{ex:decidable-choice}
-%   Suppose $P:\nat\to\type$ is a decidable family (see \cref{defn:decidable-equality}\ref{item:decidable-equality2}) of mere propositions.
-%   Prove that
-%   \[ \Brck{\sm{n:\nat} P(n)} \;\to\; \sm{n:\nat}P(n).\]
-% \end{ex}
-%
-% \begin{ex}\label{ex:omit-contr2}
-%   Prove \cref{thm:omit-contr}\ref{item:omitcontr2}: if $A$ is contractible with center $a$, then $\sm{x:A} P(x)$ is equivalent to $P(a)$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:isprop-equiv-equiv-bracket}
-%   Prove that $\isprop(P) \simeq (P \simeq \brck P)$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:finite-choice}
-%   As in classical set theory, the finite version of the axiom of choice is a theorem.  Prove that the axiom of choice \eqref{eq:ac} holds when $X$ is a finite type $\Fin(n)$ (as defined in \cref{ex:fin}).
-% \end{ex}
-%
-% \begin{ex}\label{ex:decidable-choice-strong}
-%   Show that the conclusion of \cref{ex:decidable-choice} is true if $P:\nat\to\type$ is any decidable family.
-% \end{ex}
+\begin{ex}\label{ex:prop-endocontr}
+  Show that $A$ is a mere proposition if and only if $A\to A$ is contractible.
+\end{ex}
+
+\begin{ex}\label{ex:prop-inhabcontr}
+  Show that $\eqv{\isprop(A)}{(A\to\iscontr(A))}$.
+\end{ex}
+
+\begin{ex}\label{ex:lem-mereprop}
+  Show that if $A$ is a mere proposition, then so is $A+(\neg A)$.
+  Thus, there is no need to insert a propositional truncation in~\eqref{eq:lem}.
+\end{ex}
+
+\begin{ex}\label{ex:disjoint-or}
+  More generally, show that if $A$ and $B$ are mere propositions and $\neg(A\times B)$, then $A+B$ is also a mere proposition.
+\end{ex}
+
+\begin{ex}\label{ex:hprop-iff-equiv}
+  Show that if $A$ and $B$ are mere propositions such that $A\to B$ and $B\to A$, then $\eqv A B$.
+\end{ex}
+
+\begin{ex}\label{ex:isprop-isprop}
+  Show that for any type $A$, the types $\isprop(A)$ and $\isset(A)$ are mere propositions.
+\end{ex}
+
+\begin{ex}\label{ex:prop-eqvtrunc}
+  Show that if $A$ is already a mere proposition, then $\eqv A{\brck{A}}$.
+\end{ex}
+
+\begin{ex}\label{ex:brck-qinv}
+  Assuming that some type $\isequiv(f)$ satisfies conditions~\ref{item:be1}--\ref{item:be3} of \cref{sec:basics-equivalences}, show that the type $\brck{\qinv(f)}$ satisfies the same conditions and is equivalent to $\isequiv(f)$.
+\end{ex}
+
+\begin{ex}\label{ex:lem-impl-prop-equiv-bool}
+  Show that if \LEM{} holds, then the type $\prop \defeq \sm{A:\type} \isprop(A)$ is equivalent to \bool.
+\end{ex}
+
+\begin{ex}\label{ex:lem-impred}
+  Show that if $\UU_{i+1}$ satisfies \LEM{}, then the canonical inclusion $\prop_{\UU_i} \to \prop_{\UU_{i+1}}$ is an equivalence.
+\end{ex}
+
+\begin{ex}\label{ex:not-brck-A-impl-A}
+  Show that it is not the case that for all $A:\type$ we have $\brck{A} \to A$.
+  (However, there can be particular types for which $\brck{A}\to A$.
+  \cref{ex:brck-qinv} implies that $\qinv(f)$ is such.)
+\end{ex}
+
+\begin{ex}\label{ex:lem-impl-simple-ac}
+  \index{axiom!of choice}%
+  Show that if \LEM{} holds, then for all $A:\type$ we have $\bbrck{(\brck A \to A)}$.
+  (This property is a very simple form of the axiom of choice, which can fail in the absence of \LEM{}; see~\cite{krausgeneralizations}.)
+\end{ex}
+
+\begin{ex}\label{ex:naive-lem-impl-ac}
+  We showed in \cref{thm:not-lem} that the following naive form of \LEM{} is inconsistent with univalence:
+  \[ \prd{A:\type} (A+(\neg A)) \]
+  In the absence of univalence, this axiom is consistent.
+  However, show that it implies the axiom of choice~\eqref{eq:ac}.
+\end{ex}
+
+\begin{ex}\label{ex:lem-brck}
+  Show that assuming \LEM{}, the double negation $\neg \neg A$ has the same universal property as the propositional truncation $\brck A$, and is therefore equivalent to it.
+  Thus, under \LEM{}, the propositional truncation can be defined rather than taken as a separate type former.
+\end{ex}
+
+\begin{ex}\label{ex:impred-brck}
+  \index{propositional!resizing}%
+  Show that if we assume propositional resizing as in \cref{subsec:prop-subsets}, then the type
+  \[\prd{P:\prop} \Parens{(A\to P)\to P}\]
+  has the same universal property as $\brck A$.
+  Thus, we can also define the propositional truncation in this case.
+\end{ex}
+
+\begin{ex}\label{ex:lem-impl-dn-commutes}
+  Assuming \LEM{}, show that double negation commutes with universal quantification of mere propositions over sets.
+  That is, show that if $X$ is a set and each $Y(x)$ is a mere proposition, then \LEM{} implies
+  \begin{equation}
+    \eqv{\Parens{\prd{x:X} \neg\neg Y(x)}}{\Parens{\neg\neg \prd{x:X} Y(x)}}.\label{eq:dnshift}
+  \end{equation}
+  Observe that if we assume instead that each $Y(x)$ is a set, then~\eqref{eq:dnshift} becomes equivalent to the axiom of choice~\eqref{eq:epis-split}.
+\end{ex}
+
+\begin{ex}\label{ex:prop-trunc-ind}
+  \index{induction principle!for truncation}%
+  Show that the rules for the propositional truncation given in \cref{subsec:prop-trunc} are sufficient to imply the following induction principle: for any type family $B:\brck A \to \type$ such that each $B(x)$ is a mere proposition, if for every $a:A$ we have $B(\bproj a)$, then for every $x:\brck A$ we have $B(x)$.
+\end{ex}
+
+\begin{ex}\label{ex:lem-ldn}
+  Show that the law of excluded middle~\eqref{eq:lem} and the law of double negation~\eqref{eq:ldn} are logically equivalent.
+\end{ex}
+
+\begin{ex}\label{ex:decidable-choice}
+  Suppose $P:\nat\to\type$ is a decidable family (see \cref{defn:decidable-equality}\ref{item:decidable-equality2}) of mere propositions.
+  Prove that
+  \[ \Brck{\sm{n:\nat} P(n)} \;\to\; \sm{n:\nat}P(n).\]
+\end{ex}
+
+\begin{ex}\label{ex:omit-contr2}
+  Prove \cref{thm:omit-contr}\ref{item:omitcontr2}: if $A$ is contractible with center $a$, then $\sm{x:A} P(x)$ is equivalent to $P(a)$.
+\end{ex}
+
+\begin{ex}\label{ex:isprop-equiv-equiv-bracket}
+  Prove that $\isprop(P) \simeq (P \simeq \brck P)$.
+\end{ex}
+
+\begin{ex}\label{ex:finite-choice}
+  As in classical set theory, the finite version of the axiom of choice is a theorem.  Prove that the axiom of choice \eqref{eq:ac} holds when $X$ is a finite type $\Fin(n)$ (as defined in \cref{ex:fin}).
+\end{ex}
+
+\begin{ex}\label{ex:decidable-choice-strong}
+  Show that the conclusion of \cref{ex:decidable-choice} is true if $P:\nat\to\type$ is any decidable family.
+\end{ex}
 
 
 \end{document}

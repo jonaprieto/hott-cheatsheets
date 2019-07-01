@@ -4,6 +4,8 @@
 
 % hyperref should be loaded first as many other packages
 % see https://goo.gl/Z5c9Ln
+
+
 \usepackage[pagebackref,
             colorlinks,
             citecolor=darkgreen,
@@ -14,11 +16,16 @@
             pdfsubject={Mathematics},
             pdfkeywords={type theory, homotopy theory, univalence axiom}]{hyperref}
 
+\usepackage{color,xcolor,graphicx,overpic}
+\definecolor{darkgreen}{rgb}{0,0.45,0}
+\everymath{\bfseries\color{darkgreen}}
+\everydisplay{\bfseries\color{darkgreen}}
+
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
 \usepackage[landscape]{geometry}
-\geometry{top=1cm,left=1cm,right=1cm,bottom=1.8cm}
+\geometry{top=0.5cm,left=1cm,right=1cm,bottom=1.8cm}
 
 \setcounter{secnumdepth}{0}
 \pagestyle{empty}
@@ -43,8 +50,6 @@
 \usepackage{enumitem}
 \setitemize[0]{leftmargin=10pt,itemindent=0pt,itemsep=0pt}
 \setenumerate[0]{leftmargin=10pt,itemindent=0pt,itemsep=0pt}
-
-\usepackage{color,xcolor,graphicx,overpic}
 
 \newcommand{\miniitem}[2]{%
   \begin{minipage}{#1} {\item #2} \end{minipage}}
@@ -73,10 +78,9 @@
 \fancypagestyle{plain}{
 \fancyhf{}
 \rhead{}
-\lfoot{\footnotesize\color{darkgreen}\textbf{Homotopy Type Theory Cheatsheets}
-\gitFirstTagDescribe.
-Latest version available on http://github.com/jonaprieto/hott-cheatsheets.
-Compiled at \currenttime - \gitAuthorDate}
+\lfoot{\footnotesize\color{darkgreen}\textbf{HoTT Cheatsheets}
+available on~\url{http://github.com/jonaprieto/hott-cheatsheets}.
+}
 \rfoot{\color{gray}\thepage}
 \renewcommand{\headrulewidth}{0pt}}
 \pagestyle{plain}
@@ -89,7 +93,6 @@ Compiled at \currenttime - \gitAuthorDate}
 
 \usepackage{hott}
 \input{hott-book.labels}
-
 
 \begin{document}
 

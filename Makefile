@@ -54,3 +54,5 @@ version:
 	- @git tag "v$(VERSION)" -m "$(MESSAGE)"
 	- @git add .
 	- @git commit -am "[ $(VERSION) ] $(MESSAGE)"
+	- make hard
+	- @git commit --amend

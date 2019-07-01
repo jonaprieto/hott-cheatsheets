@@ -1043,79 +1043,79 @@ Weak function extensionality implies the function extensionality \cref{axiom:fun
 % Our proof is a simplification of his.
 %
 % \sectionExercises
-%
-% \begin{ex}\label{ex:two-sided-adjoint-equivalences}
-%   Consider the type of ``two-sided adjoint equivalence\index{adjoint!equivalence} data'' for $f:A\to B$,
-%   \begin{narrowmultline*}
-%     \sm{g:B\to A}{\eta: g \circ f \htpy \idfunc[A]}{\epsilon:f \circ g \htpy \idfunc[B]}
-%     \narrowbreak
-%     \Parens{\prd{x:A} \map{f}{\eta x} = \epsilon(fx)} \times
-%     \Parens{\prd{y:B} \map{g}{\epsilon y} = \eta(gy) }.
-%   \end{narrowmultline*}
-%   By \cref{lem:coh-equiv}, we know that if $f$ is an equivalence, then this type is inhabited.
-%   Give a characterization of this type analogous to \cref{lem:qinv-autohtpy}.
-%
-%   Can you give an example showing that this type is not generally a mere proposition?
-%   (This will be easier after \cref{cha:hits}.)
-% \end{ex}
-%
-% \begin{ex}\label{ex:symmetric-equiv}
-%   Show that for any $A,B:\UU$, the following type is equivalent to $\eqv A B$.
-%   \begin{equation*}
-%     \sm{R:A\to B\to \type}
-%     \Parens{\prd{a:A} \iscontr\Parens{\sm{b:B} R(a,b)}} \times
-%     \Parens{\prd{b:B} \iscontr\Parens{\sm{a:A} R(a,b)}}.
-%   \end{equation*}
-%   Can you extract from this a definition of a type satisfying the three desiderata of $\isequiv(f)$?
-% \end{ex}
-%
-% \begin{ex} \label{ex:qinv-autohtpy-no-univalence}
-%   Reformulate the proof of \cref{lem:qinv-autohtpy} without using univalence.
-% \end{ex}
-%
-% \begin{ex}[The unstable octahedral axiom]\label{ex:unstable-octahedron}
-%   \index{axiom!unstable octahedral}%
-%   \index{octahedral axiom, unstable}%
-%   Suppose $f:A\to B$ and $g:B\to C$ and $b:B$.
-%   \begin{enumerate}
-%   \item Show that there is a natural map $\hfib{g\circ f}{g(b)} \to \hfib{g}{g(b)}$ whose fiber over $(b,\refl{g(b)})$ is equivalent to $\hfib f b$.
-%   \item Show that $\eqv{\hfib{g\circ f}{c}}{\sm{w:\hfib{g}{c}} \hfib f {\proj1 w}}$.
-%   \end{enumerate}
-% \end{ex}
-%
-% \begin{ex}\label{ex:2-out-of-6}
-%   \index{2-out-of-6 property}%
-%   Prove that equivalences satisfy the \emph{2-out-of-6 property}: given $f:A\to B$ and $g:B\to C$ and $h:C\to D$, if $g\circ f$ and $h\circ g$ are equivalences, so are $f$, $g$, $h$, and $h\circ g\circ f$.
-%   Use this to give a higher-level proof of \cref{thm:paths-respects-equiv}.
-% \end{ex}
-%
-% \begin{ex}\label{ex:qinv-univalence}
-%   For $A,B:\UU$, define
-%   \[ \mathsf{idtoqinv}_{A,B} :(A=B) \to \sm{f:A\to B}\qinv(f) \]
-%   by path induction in the obvious way.
-%   Let \textbf{\textsf{qinv}-univalence} denote the modified form of the univalence axiom which asserts that for all $A,B:\UU$ the function $\mathsf{idtoqinv}_{A,B}$ has a quasi-inverse.
-%   \begin{enumerate}
-%   \item Show that \qinv-univalence can be used instead of univalence in the proof of function extensionality in \cref{sec:univalence-implies-funext}.
-%   \item Show that \qinv-univalence can be used instead of univalence in the proof of \cref{thm:qinv-notprop}.
-%   \item Show that \qinv-univalence is inconsistent (i.e.\ allows construction of an inhabitant of $\emptyt$).
-%     Thus, the use of a ``good'' version of $\isequiv$ is essential in the statement of univalence.
-%   \end{enumerate}
-% \end{ex}
-%
-% \begin{ex}\label{ex:embedding-cancellable}
-%   Show that a function $f:A\to B$ is an embedding if and only if the following two conditions hold:
-%   \begin{enumerate}
-%   \item $f$ is \emph{left cancellable}, i.e.\ for any $x,y:A$, if $f(x)=f(y)$ then $x=y$.\label{item:ex:ec1}
-%   \item For any $x:A$, the map $\apfunc f: \Omega(A,x) \to \Omega(B,f(x))$ is an equivalence.\label{item:ex:ec2}
-%   \end{enumerate}
-%   (In particular, if $A$ is a set, then $f$ is an embedding if and only if it is left-cancellable and $\Omega(B,f(x))$ is contractible for all $x:A$.)
-%   Give examples to show that neither of~\ref{item:ex:ec1} or~\ref{item:ex:ec2} implies the other.
-% \end{ex}
-%
-% \begin{ex}\label{ex:cancellable-from-bool}
-%   Show that the type of left-cancellable functions $\bool\to B$ (see \cref{ex:embedding-cancellable}) is equivalent to $\sm{x,y:B}(x\neq y)$.
-%   Give a similar explicit characterization of the type of embeddings $\bool\to B$.
-% \end{ex}
+
+\begin{ex}\label{ex:two-sided-adjoint-equivalences}
+  Consider the type of ``two-sided adjoint equivalence\index{adjoint!equivalence} data'' for $f:A\to B$,
+  \begin{narrowmultline*}
+    \sm{g:B\to A}{\eta: g \circ f \htpy \idfunc[A]}{\epsilon:f \circ g \htpy \idfunc[B]}
+    \narrowbreak
+    \Parens{\prd{x:A} \map{f}{\eta x} = \epsilon(fx)} \times
+    \Parens{\prd{y:B} \map{g}{\epsilon y} = \eta(gy) }.
+  \end{narrowmultline*}
+  By \cref{lem:coh-equiv}, we know that if $f$ is an equivalence, then this type is inhabited.
+  Give a characterization of this type analogous to \cref{lem:qinv-autohtpy}.
+
+  Can you give an example showing that this type is not generally a mere proposition?
+  (This will be easier after \cref{cha:hits}.)
+\end{ex}
+
+\begin{ex}\label{ex:symmetric-equiv}
+  Show that for any $A,B:\UU$, the following type is equivalent to $\eqv A B$.
+  \begin{equation*}
+    \sm{R:A\to B\to \type}
+    \Parens{\prd{a:A} \iscontr\Parens{\sm{b:B} R(a,b)}} \times
+    \Parens{\prd{b:B} \iscontr\Parens{\sm{a:A} R(a,b)}}.
+  \end{equation*}
+  Can you extract from this a definition of a type satisfying the three desiderata of $\isequiv(f)$?
+\end{ex}
+
+\begin{ex} \label{ex:qinv-autohtpy-no-univalence}
+  Reformulate the proof of \cref{lem:qinv-autohtpy} without using univalence.
+\end{ex}
+
+\begin{ex}[The unstable octahedral axiom]\label{ex:unstable-octahedron}
+  \index{axiom!unstable octahedral}%
+  \index{octahedral axiom, unstable}%
+  Suppose $f:A\to B$ and $g:B\to C$ and $b:B$.
+  \begin{enumerate}
+  \item Show that there is a natural map $\hfib{g\circ f}{g(b)} \to \hfib{g}{g(b)}$ whose fiber over $(b,\refl{g(b)})$ is equivalent to $\hfib f b$.
+  \item Show that $\eqv{\hfib{g\circ f}{c}}{\sm{w:\hfib{g}{c}} \hfib f {\proj1 w}}$.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}\label{ex:2-out-of-6}
+  \index{2-out-of-6 property}%
+  Prove that equivalences satisfy the \emph{2-out-of-6 property}: given $f:A\to B$ and $g:B\to C$ and $h:C\to D$, if $g\circ f$ and $h\circ g$ are equivalences, so are $f$, $g$, $h$, and $h\circ g\circ f$.
+  Use this to give a higher-level proof of \cref{thm:paths-respects-equiv}.
+\end{ex}
+
+\begin{ex}\label{ex:qinv-univalence}
+  For $A,B:\UU$, define
+  \[ \mathsf{idtoqinv}_{A,B} :(A=B) \to \sm{f:A\to B}\qinv(f) \]
+  by path induction in the obvious way.
+  Let \textbf{\textsf{qinv}-univalence} denote the modified form of the univalence axiom which asserts that for all $A,B:\UU$ the function $\mathsf{idtoqinv}_{A,B}$ has a quasi-inverse.
+  \begin{enumerate}
+  \item Show that \qinv-univalence can be used instead of univalence in the proof of function extensionality in \cref{sec:univalence-implies-funext}.
+  \item Show that \qinv-univalence can be used instead of univalence in the proof of \cref{thm:qinv-notprop}.
+  \item Show that \qinv-univalence is inconsistent (i.e.\ allows construction of an inhabitant of $\emptyt$).
+    Thus, the use of a ``good'' version of $\isequiv$ is essential in the statement of univalence.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}\label{ex:embedding-cancellable}
+  Show that a function $f:A\to B$ is an embedding if and only if the following two conditions hold:
+  \begin{enumerate}
+  \item $f$ is \emph{left cancellable}, i.e.\ for any $x,y:A$, if $f(x)=f(y)$ then $x=y$.\label{item:ex:ec1}
+  \item For any $x:A$, the map $\apfunc f: \Omega(A,x) \to \Omega(B,f(x))$ is an equivalence.\label{item:ex:ec2}
+  \end{enumerate}
+  (In particular, if $A$ is a set, then $f$ is an embedding if and only if it is left-cancellable and $\Omega(B,f(x))$ is contractible for all $x:A$.)
+  Give examples to show that neither of~\ref{item:ex:ec1} or~\ref{item:ex:ec2} implies the other.
+\end{ex}
+
+\begin{ex}\label{ex:cancellable-from-bool}
+  Show that the type of left-cancellable functions $\bool\to B$ (see \cref{ex:embedding-cancellable}) is equivalent to $\sm{x,y:B}(x\neq y)$.
+  Give a similar explicit characterization of the type of embeddings $\bool\to B$.
+\end{ex}
 
 % Local Variables:
 % TeX-master: "hott-online"

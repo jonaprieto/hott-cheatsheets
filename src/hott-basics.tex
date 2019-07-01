@@ -6,6 +6,7 @@
   {\Large{\underline{\textbf{Homotopy Type Theory}}}} \\[2mm]
   {\large Basics}
 \end{center}
+
 \setcounter{chapter}{2}
 
 % The central new idea in homotopy type theory is that types can be regarded as
@@ -2593,49 +2594,49 @@ For pullbacks, the expected explicit construction works: given $f:A\to C$ and $g
 %
 % \sectionExercises
 %
-\stepcounter{ex}
-% \begin{ex}\label{ex:basics:concat}
-%   Show that the three obvious proofs of \cref{lem:concat} are pairwise equal.
-% \end{ex}
-%
-\stepcounter{ex}
-% \begin{ex}\label{ex:eq-proofs-commute}
-%   Show that the three equalities of proofs constructed in the previous exercise form a commutative triangle.
-%   In other words, if the three definitions of concatenation are denoted by $(p \mathbin{\ct_1} q)$, $(p\mathbin{\ct_2} q)$, and $(p\mathbin{\ct_3} q)$, then the concatenated equality
-%   \[(p\mathbin{\ct_1} q) = (p\mathbin{\ct_2} q) = (p\mathbin{\ct_3} q)\]
-%   is equal to the equality $(p\mathbin{\ct_1} q) = (p\mathbin{\ct_3} q)$.
-% \end{ex}
-%
-\stepcounter{ex}
-% \begin{ex}\label{ex:fourth-concat}
-%   Give a fourth, different, proof of \cref{lem:concat}, and prove that it is equal to the others.
-% \end{ex}
-%
-\stepcounter{ex}
-% \begin{ex}\label{ex:npaths}
-%   Define, by induction on $n$, a general notion of \define{$n$-dimensional path}\index{path!n-@$n$-} in a type $A$, simultaneously with the type of boundaries for such paths.
-% \end{ex}
-%
-\stepcounter{ex}
-% \begin{ex}\label{ex:ap-to-apd-equiv-apd-to-ap}
-%   Prove that the functions~\eqref{eq:ap-to-apd} and~\eqref{eq:apd-to-ap} are inverse equivalences.
-%   % and that they take $\apfunc f(p)$ to $\apdfunc f (p)$ and vice versa. (that was \cref{thm:apd-const})
-% \end{ex}
-%
-\stepcounter{ex}
-% \begin{ex}\label{ex:equiv-concat}
-%   Prove that if $p:x=y$, then the function $(p\ct \blank):(y=z) \to (x=z)$ is an equivalence.
-% \end{ex}
+% \stepcounter{ex}
+\begin{ex}\label{ex:basics:concat}
+  Show that the three obvious proofs of \cref{lem:concat} are pairwise equal.
+\end{ex}
 
-\stepcounter{ex}
-% \begin{ex}\label{ex:ap-sigma}
-%   State and prove a generalization of \cref{thm:ap-prod} from cartesian products to $\Sigma$-types.
-% \end{ex}
+% \stepcounter{ex}
+\begin{ex}\label{ex:eq-proofs-commute}
+  Show that the three equalities of proofs constructed in the previous exercise form a commutative triangle.
+  In other words, if the three definitions of concatenation are denoted by $(p \mathbin{\ct_1} q)$, $(p\mathbin{\ct_2} q)$, and $(p\mathbin{\ct_3} q)$, then the concatenated equality
+  \[(p\mathbin{\ct_1} q) = (p\mathbin{\ct_2} q) = (p\mathbin{\ct_3} q)\]
+  is equal to the equality $(p\mathbin{\ct_1} q) = (p\mathbin{\ct_3} q)$.
+\end{ex}
+
+% \stepcounter{ex}
+\begin{ex}\label{ex:fourth-concat}
+  Give a fourth, different, proof of \cref{lem:concat}, and prove that it is equal to the others.
+\end{ex}
+
+% \stepcounter{ex}
+\begin{ex}\label{ex:npaths}
+  Define, by induction on $n$, a general notion of \define{$n$-dimensional path}\index{path!n-@$n$-} in a type $A$, simultaneously with the type of boundaries for such paths.
+\end{ex}
 %
-\stepcounter{ex}
-% \begin{ex}\label{ex:ap-coprod}
-%   State and prove an analogue of \cref{thm:ap-prod} for coproducts.
-% \end{ex}
+% \stepcounter{ex}
+\begin{ex}\label{ex:ap-to-apd-equiv-apd-to-ap}
+  Prove that the functions~\eqref{eq:ap-to-apd} and~\eqref{eq:apd-to-ap} are inverse equivalences.
+  % and that they take $\apfunc f(p)$ to $\apdfunc f (p)$ and vice versa. (that was \cref{thm:apd-const})
+\end{ex}
+%
+% \stepcounter{ex}
+\begin{ex}\label{ex:equiv-concat}
+  Prove that if $p:x=y$, then the function $(p\ct \blank):(y=z) \to (x=z)$ is an equivalence.
+\end{ex}
+
+% \stepcounter{ex}
+\begin{ex}\label{ex:ap-sigma}
+  State and prove a generalization of \cref{thm:ap-prod} from cartesian products to $\Sigma$-types.
+\end{ex}
+%
+% \stepcounter{ex}
+\begin{ex}\label{ex:ap-coprod}
+  State and prove an analogue of \cref{thm:ap-prod} for coproducts.
+\end{ex}
 %
 
 \begin{ex}\label{ex:coprod-ump}
@@ -2673,57 +2674,57 @@ For pullbacks, the expected explicit construction works: given $f:A\to C$ and $g
 %   Prove that the pullback $P \defeq A\times_C B$ defined in~\eqref{eq:defn-pullback} is the corner of a pullback square.
 \end{ex}
 %
-% \begin{ex}\label{ex:pullback-pasting}
-%   Suppose given two commutative squares
-%   \begin{equation*}
-%     \vcenter{\xymatrix{
-%         A\ar[r]\ar[d] &
-%         C\ar[r]\ar[d] &
-%         E\ar[d]\\
-%         B\ar[r] &
-%         D\ar[r] &
-%         F
-%       }}
-%   \end{equation*}
-%   and suppose that the right-hand square is a pullback square.
-%   Prove that the left-hand square is a pullback square if and only if the outer rectangle is a pullback square.
-% \end{ex}
-%
-% \begin{ex}\label{ex:eqvboolbool}
-%   Show that $\eqv{(\eqv\bool\bool)}{\bool}$.
-% \end{ex}
-%
-% \begin{ex}\label{ex:equality-reflection}
-%   Suppose we add to type theory the \emph{equality reflection rule} which says that if there is an element $p:x=y$, then in fact $x\jdeq y$.
-%   Prove that for any $p:x=x$ we have $p\jdeq \refl{x}$.
-%   (This implies that every type is a \emph{set} in the sense to be introduced in \cref{sec:basics-sets}; see \cref{sec:hedberg}.)
-% \end{ex}
-%
-% \begin{ex}\label{ex:strengthen-transport-is-ap}
-%   Show that \cref{thm:transport-is-ap} can be strengthened to
-%   \[\transfib{B}{p}{{\blank}} =_{B(x)\to B(y)} \idtoeqv(\apfunc{B}(p))\]
-%   without using function extensionality.
-%   (In this and other similar cases, the apparently weaker formulation has been chosen for readability and consistency.)
-% \end{ex}
-%
-% \begin{ex}\label{ex:strong-from-weak-funext}
-%   Suppose that rather than function extensionality (\cref{axiom:funext}), we suppose only the existence of an element
-%   \[ \funext : \prd{A:\UU}{B:A\to \UU}{f,g:\prd{x:A} B(x)} (f\htpy g) \to (f=g) \]
-%   (with no relationship to $\happly$ assumed).
-%   Prove that in fact, this is sufficient to imply the whole function extensionality axiom (that $\happly$ is an equivalence).
-%   This is due to Voevodsky; its proof is tricky and may require concepts from later chapters.
-% \end{ex}
-%
-% \begin{ex}\label{ex:equiv-functor-types}\
-%   \begin{enumerate}
-%   \item Show that if $\eqv{A}{A'}$  and $\eqv{B}{B'}$, then $\eqv{(A\times B)}{(A'\times B')}$.
-%   \item Give two proofs of this fact, one using univalence and one not using it, and show that the two proofs are equal.
-%   \item Formulate and prove analogous results for the other type formers: $\Sigma$, $\to$, $\Pi$, and $+$.
-% \end{enumerate}
-% \end{ex}
-%
-% \begin{ex}\label{ex:dep-htpy-natural}
-%   State and prove a version of \cref{lem:htpy-natural} for dependent functions.
-% \end{ex}
+\begin{ex}\label{ex:pullback-pasting}
+  Suppose given two commutative squares
+  \begin{equation*}
+    \vcenter{\xymatrix{
+        A\ar[r]\ar[d] &
+        C\ar[r]\ar[d] &
+        E\ar[d]\\
+        B\ar[r] &
+        D\ar[r] &
+        F
+      }}
+  \end{equation*}
+  and suppose that the right-hand square is a pullback square.
+  Prove that the left-hand square is a pullback square if and only if the outer rectangle is a pullback square.
+\end{ex}
+
+\begin{ex}\label{ex:eqvboolbool}
+  Show that $\eqv{(\eqv\bool\bool)}{\bool}$.
+\end{ex}
+
+\begin{ex}\label{ex:equality-reflection}
+  Suppose we add to type theory the \emph{equality reflection rule} which says that if there is an element $p:x=y$, then in fact $x\jdeq y$.
+  Prove that for any $p:x=x$ we have $p\jdeq \refl{x}$.
+  (This implies that every type is a \emph{set} in the sense to be introduced in \cref{sec:basics-sets}; see \cref{sec:hedberg}.)
+\end{ex}
+
+\begin{ex}\label{ex:strengthen-transport-is-ap}
+  Show that \cref{thm:transport-is-ap} can be strengthened to
+  \[\transfib{B}{p}{{\blank}} =_{B(x)\to B(y)} \idtoeqv(\apfunc{B}(p))\]
+  without using function extensionality.
+  (In this and other similar cases, the apparently weaker formulation has been chosen for readability and consistency.)
+\end{ex}
+
+\begin{ex}\label{ex:strong-from-weak-funext}
+  Suppose that rather than function extensionality (\cref{axiom:funext}), we suppose only the existence of an element
+  \[ \funext : \prd{A:\UU}{B:A\to \UU}{f,g:\prd{x:A} B(x)} (f\htpy g) \to (f=g) \]
+  (with no relationship to $\happly$ assumed).
+  Prove that in fact, this is sufficient to imply the whole function extensionality axiom (that $\happly$ is an equivalence).
+  This is due to Voevodsky; its proof is tricky and may require concepts from later chapters.
+\end{ex}
+
+\begin{ex}\label{ex:equiv-functor-types}\
+  \begin{enumerate}
+  \item Show that if $\eqv{A}{A'}$  and $\eqv{B}{B'}$, then $\eqv{(A\times B)}{(A'\times B')}$.
+  \item Give two proofs of this fact, one using univalence and one not using it, and show that the two proofs are equal.
+  \item Formulate and prove analogous results for the other type formers: $\Sigma$, $\to$, $\Pi$, and $+$.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}\label{ex:dep-htpy-natural}
+  State and prove a version of \cref{lem:htpy-natural} for dependent functions.
+\end{ex}
 
 \end{document}
