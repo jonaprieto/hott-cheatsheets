@@ -13,7 +13,7 @@
 \usepackage{mathpazo}
 \usepackage[scaled=0.95]{helvet}
 \usepackage{courier}
-\linespread{1.05} % Palatino looks better with this
+\linespread{0.9} % Palatino looks better with this
 
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.png}
@@ -41,20 +41,17 @@
 
 \usepackage{mathpartir}         % for formal.tex appendix, section 3
 
+
 \usepackage[numbered]{bookmark} % add chapter/section numbers to the toc in the pdf metadata
 % \newcounter{chapter}
 
 
 % MACROS FOR FINE TUNING
-\newcommand{\narrowbreak}{}
-\newcommand{\narrowamp}{}
-\newcommand{\narrowequation}[1]{$#1$}
-\newenvironment{narrowmultline}{\csname equation\endcsname}{\csname endequation\endcsname}
-\newenvironment{narrowmultline*}{\csname equation*\endcsname}{\csname endequation*\endcsname}
-
-%%% FORMATTING OPTIONS FOR A4 SIZE
-%%%% MACROS FOR NOTATION %%%%
-% Use these for any notation where there are multiple options.
+\newcommand{\narrowbreak}{\\}
+\newcommand{\narrowamp}{&}
+\newcommand{\narrowequation}[1]{\begin{equation*}#1\end{equation*}}
+\newenvironment{narrowmultline*}{\csname multline*\endcsname}{\csname endmultline*\endcsname}
+\newenvironment{narrowmultline}{\csname multline\endcsname}{\csname endmultline\endcsname}
 
 %%% Notes and exercise sections
 \makeatletter
@@ -762,34 +759,34 @@
 }
 
 % Now define a bunch of theorem-type environments.
-\newtheorem{thm}{Theorem}[section]
-\crefname{thm}{Theorem}{Theorems}
+\newtheorem{thm}{T}[section]
+\crefname{thm}{T}{T}
 %\defthm{prop}{Proposition}   % Probably we shouldn't use "Proposition" in this way
-\defthm{cor}{Corollary}{Corollaries}
-\defthm{lem}{Lemma}{Lemmas}
-\defthm{axiom}{Axiom}{Axioms}
+\defthm{cor}{C}{C}
+\defthm{lem}{L}{L}
+\defthm{axiom}{A}{A}
 % Since definitions and theorems in type theory are synonymous, should
 % we actually use the same theoremstyle for them?
 \theoremstyle{definition}
-\defthm{defn}{Definition}{Definitions}
+\defthm{defn}{D}{D}
 \theoremstyle{remark}
-\defthm{rmk}{Remark}{Remarks}
-\defthm{eg}{Example}{Examples}
-\defthm{egs}{Examples}{Examples}
-\defthm{notes}{Notes}{Notes}
+\defthm{rmk}{NB}{R}
+\defthm{eg}{E}{E}
+\defthm{egs}{E}{E}
+\defthm{notes}{N}{N}
 % Number exercises within chapters, with their own counter.
-\newtheorem{ex}{Exercise}[chapter]
-\crefname{ex}{Exercise}{Exercises}
+\newtheorem{ex}{Exer.}[chapter]
+\crefname{ex}{Exer.}{Exercises}
 
 % Display format for sections
 \crefformat{section}{\S#2#1#3}
-\Crefformat{section}{Section~#2#1#3}
+\Crefformat{section}{Sec.~#2#1#3}
 \crefrangeformat{section}{\S\S#3#1#4--#5#2#6}
-\Crefrangeformat{section}{Sections~#3#1#4--#5#2#6}
+\Crefrangeformat{section}{Sec.~#3#1#4--#5#2#6}
 \crefmultiformat{section}{\S\S#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
-\Crefmultiformat{section}{Sections~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\Crefmultiformat{section}{Sect.~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
 \crefrangemultiformat{section}{\S\S#3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}{, #3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}
-\Crefrangemultiformat{section}{Sections~#3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}{, #3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}
+\Crefrangemultiformat{section}{Sect.~#3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}{, #3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}
 
 % Display format for appendices
 \Crefformat{appendix}{Appendix~#2#1#3}
@@ -806,7 +803,7 @@
 \setcounter{secnumdepth}{5}
 
 % Display format for figures
-\crefname{figure}{Figure}{Figures}
+\crefname{figure}{Fig.}{Fig.}
 
 %%%% EQUATION NUMBERING %%%%
 
