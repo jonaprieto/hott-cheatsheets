@@ -1,10 +1,12 @@
 \documentclass[hott-all.tex]{subfiles}
+
 \begin{document}
 
 \begin{center}
   {\Large{\underline{\textbf{Homotopy Type Theory}}}} \\[2mm]
   {\large Sets and logic}
 \end{center}
+
 \setcounter{chapter}{3}
 
 %
@@ -16,7 +18,7 @@
 % In this chapter we will explain the issues involved, and justify the choices we have made.
 
 \section{Sets and \texorpdfstring{$n$}{n}-types}
-\label{sec:basics-sets}
+\fakelabel{sec:basics-sets}
 
 % \index{set|(defstyle}%
 
@@ -31,7 +33,7 @@
 % \index{functoriality of functions in type theory@``functoriality'' of functions in type theory}%
 % it turns out to be sufficient to ask this at the bottom level.
 
-\begin{defn}\label{defn:set}
+\begin{defn}\fakelabel{defn:set}
   A type $A$ is a \define{set}
   if for all $x,y:A$ and all $p,q:x=y$, we have $p=q$.
 \end{defn}
@@ -47,18 +49,18 @@ More precisely, the proposition $\isset(A)$ is defined to be the type
 % Which types are sets?
 % In \cref{cha:hlevels} we will study a more general form of this question in depth, but for now we can observe some easy examples.
 
-\begin{eg}\label{eg:isset-unit}
+\begin{eg}\fakelabel{eg:isset-unit}
   The type \unit is a set.
   % For by \cref{thm:path-unit}, -- TODO ...
   For any $x,y:\unit$ the type $(x=y)$ is equivalent to \unit.
   Since any two elements of \unit are equal, this implies that any two elements of $x=y$ are equal.
 \end{eg}
 
-\begin{eg}\label{eg:isset-empty}
+\begin{eg}\fakelabel{eg:isset-empty}
   The type $\emptyt$ is a set, for given any $x,y:\emptyt$ we may deduce anything we like, by the induction principle of $\emptyt$.
 \end{eg}
 
-\begin{eg}\label{thm:nat-set}
+\begin{eg}\fakelabel{thm:nat-set}
   The type \nat of natural numbers is also a set.
   % This follows from \cref{thm:path-nat}, -- TODO
   Since all equality types $\id[\nat]xy$ are equivalent to either \unit or \emptyt, and any two inhabitants of \unit or \emptyt are equal.
@@ -67,7 +69,7 @@ More precisely, the proposition $\isset(A)$ is defined to be the type
 
 Most of the type forming operations we have considered so far also preserve sets.
 
-\begin{eg}\label{thm:isset-prod}
+\begin{eg}\fakelabel{thm:isset-prod}
   If $A$ and $B$ are sets, then so is $A\times B$.
   For given $x,y:A\times B$ and $p,q:x=y$, then
   % by \cref{thm:path-prod} -- TODO
@@ -77,7 +79,7 @@ Most of the type forming operations we have considered so far also preserve sets
   Similarly, if $A$ is a set and $B:A\to\type$ is such that each $B(x)$ is a set, then $\sm{x:A} B(x)$ is a set.
 \end{eg}
 
-\begin{eg}\label{thm:isset-forall}
+\begin{eg}\fakelabel{thm:isset-forall}
   If $A$ is \emph{any} type and $B:A\to \type$ is such that each $B(x)$ is a set, then the type $\prd{x:A} B(x)$ is a set.
   For suppose $f,g:\prd{x:A} B(x)$ and $p,q:f=g$.
   By function extensionality, we have
@@ -109,7 +111,7 @@ Most of the type forming operations we have considered so far also preserve sets
 % The defining property of a set (which we may also call a \emph{$0$-type}) is that it has no non-trivial paths.
 % Similarly, the defining property of a $1$-type is that it has no non-trivial paths between paths:
 
-\begin{defn}\label{defn:1type}
+\begin{defn}\fakelabel{defn:1type}
   A type $A$ is a \define{1-type}
   \indexdef{1-type}%
   if for all $x,y:A$ and $p,q:x=y$ and $r,s:p=q$, we have $r=s$.
@@ -125,7 +127,7 @@ Most of the type forming operations we have considered so far also preserve sets
 % %% ``suffices for all higher levels'', but as an example, we observe that
 % %% it suffices for the next level up.
 
-\begin{lem}\label{thm:isset-is1type}
+\begin{lem}\fakelabel{thm:isset-is1type}
   If $A$ is a set (that is, $\isset(A)$ is inhabited), then $A$ is a 1-type.
 \end{lem}
 %
@@ -142,7 +144,7 @@ Most of the type forming operations we have considered so far also preserve sets
 % Second, this stratification of types by level is not degenerate, in the
 % sense that not all types are sets:
 
-% \begin{eg}\label{thm:type-is-not-a-set}
+% \begin{eg}\fakelabel{thm:type-is-not-a-set}
 %   \index{type!universe}%
 %   The universe \type is not a set.
 %   To prove this, it suffices to exhibit a type $A$ and a path $p:A=A$ which is not equal to $\refl A$.
@@ -169,7 +171,7 @@ Most of the type forming operations we have considered so far also preserve sets
 % \index{set|)}%
 
 \section{Propositions as types?}
-\label{subsec:pat?}
+\fakelabel{subsec:pat?}
 %
 % \index{proposition!as types|(}%
 % \index{logic!constructive vs classical|(}%
@@ -179,7 +181,7 @@ Most of the type forming operations we have considered so far also preserve sets
 % For instance, in \cref{thm:ttac} we saw that the statement
 % \index{axiom!of choice!type-theoretic}%
 \begin{rmk}
-\label{eq:english-ac}
+\fakelabel{eq:english-ac}
 (Statement)
 If for all $x:X$ there exists an $a:A(x)$ such that $P(x,a)$, then there exists
 a function $g:\prd{x:A} A(x)$ such that for all $x:X$ we have $P(x,g(x))$''.\\
@@ -198,7 +200,7 @@ The classical \emph{law of double negation} and \emph{law of excluded middle} ar
 \end{rmk}
 % \index{univalence axiom}%
 
-\begin{thm}\label{thm:not-dneg}
+\begin{thm}\fakelabel{thm:not-dneg}
   \index{double negation, law of}%
   It is not the case that for all $A:\UU$ we have $\neg(\neg A) \to A$.
 \end{thm}
@@ -234,12 +236,12 @@ The classical \emph{law of double negation} and \emph{law of excluded middle} ar
 %   \[ \transfib{A\mapsto A}{p}{f(\bool)(u)} = f(\bool)(u).\]
 %   Finally, as discussed in \cref{sec:compute-universe}, transporting in the type family $A\mapsto A$ along the path $p\jdeq \ua(e)$ is equivalent to applying the equivalence $e$; thus we have
 %   \begin{equation}
-%     e(f(\bool)(u)) = f(\bool)(u).\label{eq:fpaut}
+%     e(f(\bool)(u)) = f(\bool)(u).\fakelabel{eq:fpaut}
 %   \end{equation}
 %   %
 %   However, we can also prove that
 %   \begin{equation}
-%     \prd{x:\bool} \neg(e(x)=x).\label{eq:fpfaut}
+%     \prd{x:\bool} \neg(e(x)=x).\fakelabel{eq:fpfaut}
 %   \end{equation}
 %   This follows from a case analysis on $x$: both cases are immediate from the definition of $e$ and the fact that $\bfalse\neq\btrue$ (\cref{rmk:true-neq-false}).
 %   Thus, applying~\eqref{eq:fpfaut} to $f(\bool)(u)$ and~\eqref{eq:fpaut}, we obtain an element of $\emptyt$.
@@ -257,7 +259,7 @@ For any $A$,  $\neg\neg\neg A \to \neg A$ for any $A$.
 %   It is, however, still the case that $\neg\neg\neg A \to \neg A$ for any $A$; see \cref{ex:neg-ldn}.
 \end{rmk}
 
-\begin{cor}\label{thm:not-lem}
+\begin{cor}\fakelabel{thm:not-lem}
   \index{excluded middle}%
   It is not the case that for all $A:\UU$ we have $A+(\neg A)$.
 \end{cor}
@@ -280,7 +282,7 @@ For any $A$,  $\neg\neg\neg A \to \neg A$ for any $A$.
 % \index{logic!constructive vs classical|)}%
 
 \section{Mere propositions}
-\label{subsec:hprops}
+\fakelabel{subsec:hprops}
 %
 % \index{logic!of mere propositions|(}%
 % \index{mere proposition|(defstyle}%
@@ -299,7 +301,7 @@ For any $A$,  $\neg\neg\neg A \to \neg A$ for any $A$.
 % By contrast, if we are given an element of \unit, then we receive no more information than the mere fact that \unit contains an element, since any two elements of \unit are equal to each other.
 % This suggests the following definition.
 
-\begin{defn}\label{defn:isprop}
+\begin{defn}\fakelabel{defn:isprop}
   A type $P$ is a \define{mere proposition}
   if for all $x,y:P$ we have $x=y$.
 \end{defn}
@@ -310,7 +312,7 @@ Specifically, for any $P:\type$, the type $\isprop(P)$ is defined to be
 % Thus, to assert that ``$P$ is a mere proposition'' means to exhibit an inhabitant of $\isprop(P)$, which is a dependent function connecting any two elements of $P$ by a path.
 % The continuity/naturality of this function implies that not only are any two elements of $P$ equal, but $P$ contains no higher homotopy either.
 
-\begin{lem}\label{thm:inhabprop-eqvunit}
+\begin{lem}\fakelabel{thm:inhabprop-eqvunit}
   If $P$ is a mere proposition and $x_0:P$, then $\eqv P \unit$.
 \end{lem}
 %
@@ -319,7 +321,7 @@ Specifically, for any $P:\type$, the type $\isprop(P)$ is defined to be
 %   The claim follows from the next lemma, and the observation that \unit is a mere proposition by \cref{thm:path-unit}.
 % \end{proof}
 
-\begin{lem}\label{lem:equiv-iff-hprop}
+\begin{lem}\fakelabel{lem:equiv-iff-hprop}
   If $P$ and $Q$ are mere propositions such that $P\to Q$ and $Q\to P$, then $\eqv P Q$.
 \end{lem}
 %
@@ -347,7 +349,7 @@ Specifically, for any $P:\type$, the type $\isprop(P)$ is defined to be
 % Note that a type $A$ is a set if and only if for all $x,y:A$, the identity type $\id[A]xy$ is a mere proposition.
 % On the other hand, by copying and simplifying the proof of \cref{thm:isset-is1type}, we have:
 
-\begin{lem}\label{thm:prop-set}
+\begin{lem}\fakelabel{thm:prop-set}
   Every mere proposition is a set.
 \end{lem}
 %
@@ -361,7 +363,7 @@ Specifically, for any $P:\type$, the type $\isprop(P)$ is defined to be
 
 % In particular, this implies:
 
-\begin{lem}\label{thm:isprop-isprop}\label{thm:isprop-isset}
+\begin{lem}\fakelabel{thm:isprop-isprop}\fakelabel{thm:isprop-isset}
   For any type $A$, the types $\isprop(A)$ and $\isset(A)$ are mere propositions.
 \end{lem}
 %
@@ -382,7 +384,7 @@ Specifically, for any $P:\type$, the type $\isprop(P)$ is defined to be
 % \index{mere proposition|)}%
 
 \section{Classical vs.\ intuitionistic logic}
-\label{sec:intuitionism}
+\fakelabel{sec:intuitionism}
 
 % \index{logic!constructive vs classical|(}%
 % \index{denial|(}%
@@ -392,7 +394,7 @@ With the notion of mere proposition in hand, we can now give the proper formulat
 % \indexsee{law!of excluded middle}{excluded middle}%
 in homotopy type theory:
 \begin{equation}
-  \label{eq:lem}
+  \fakelabel{eq:lem}
   \LEM{}\;\defeq\;
   \prd{A:\UU} \Big(\isprop(A) \to (A + \neg A)\Big).
 \end{equation}
@@ -402,7 +404,7 @@ Similarly, the \define{law of double negation}
 % \indexdef{law!of double negation}%
 is
 \begin{equation}
-  \label{eq:ldn}
+  \fakelabel{eq:ldn}
   % \mathsf{DN}\;\defeq\;
   \prd{A:\UU} \Big(\isprop(A) \to (\neg\neg A \to A)\Big).
 \end{equation}
@@ -455,7 +457,7 @@ is
 % It is also worth mentioning that even in constructive mathematics, the law of excluded middle can hold for \emph{some} propositions.
 % The name traditionally given to such propositions is \emph{decidable}.
 
-\begin{defn}\label{defn:decidable-equality}
+\begin{defn}\fakelabel{defn:decidable-equality}
   \mbox{}
   \begin{enumerate}
   \item A type $A$ is called \define{decidable}
@@ -465,7 +467,7 @@ is
   \item Similarly, a type family $B:A\to \type$ is \define{decidable}
     \indexdef{decidable!type family}%
     \indexdef{type!family of!decidable}%
-    if \narrowequation{\prd{a:A} (B(a)+\neg B(a)).} \label{item:decidable-equality2}
+    if \narrowequation{\prd{a:A} (B(a)+\neg B(a)).} \fakelabel{item:decidable-equality2}
   \item In particular, $A$ has \define{decidable equality}
     \indexdef{decidable!equality}%
     \indexsee{equality!decidable}{decidable equality}%
@@ -481,7 +483,7 @@ is
 % \index{logic!constructive vs classical|)}%
 
 \section{Subsets and propositional resizing}
-\label{subsec:prop-subsets}
+\fakelabel{subsec:prop-subsets}
 %
 % \index{mere proposition|(}%
 %
@@ -496,7 +498,7 @@ is
 % This is counter to the usual intuition of a subset.
 % But if $P$ is a \emph{mere} proposition, then this cannot happen.
 
-\begin{lem}\label{thm:path-subset}
+\begin{lem}\fakelabel{thm:path-subset}
   Suppose $P:A\to\type$ is a type family such that $P(x)$ is a mere proposition for all $x:A$.
   If $u,v:\sm{x:A} P(x)$ are such that $\proj1(u) = \proj1(v)$, then $u=v$.
 \end{lem}
@@ -511,12 +513,12 @@ For instance, recall that %in \cref{sec:basics-equivalences} we defined
 where each type $\isequiv (f)$ was supposed to be a mere proposition.
 It follows that if two equivalences have equal underlying functions, then they are equal as equivalences.
 
-\label{defn:setof}%
+\fakelabel{defn:setof}%
 % Henceforth,
 If $P:A\to \type$ is a family of mere propositions (i.e.\ each $P(x)$ is a mere proposition), we may write
 %
 \begin{equation}
-  \label{eq:subset}
+  \fakelabel{eq:subset}
   \setof{x:A | P(x)}
 \end{equation}
 %
@@ -554,8 +556,8 @@ An element of $\setU$ is a type $A:\UU$ together with evidence $s:\isset(A)$, an
 % Recall that for any two universes $\UU_i$ and $\UU_{i+1}$, if $A:\UU_i$ then also $A:\UU_{i+1}$.
 % Thus, for any $(A,s):\set_{\UU_i}$ we also have $(A,s):\set_{\UU_{i+1}}$, and similarly for $\prop_{\UU_i}$, giving natural maps
 % \begin{align}
-%   \set_{\UU_i} &\to \set_{\UU_{i+1}}\label{eq:set-up},\\
-%   \prop_{\UU_i} &\to \prop_{\UU_{i+1}}.\label{eq:prop-up}
+%   \set_{\UU_i} &\to \set_{\UU_{i+1}}\fakelabel{eq:set-up},\\
+%   \prop_{\UU_i} &\to \prop_{\UU_{i+1}}.\fakelabel{eq:prop-up}
 % \end{align}
 % The map~\eqref{eq:set-up} cannot be an equivalence, since then we could reproduce the paradoxes\index{paradox} of self-reference that are familiar from Cantorian set theory.
 % However, although~\eqref{eq:prop-up} is not automatically an equivalence in the type theory we have presented so far, it is consistent to suppose that it is.
@@ -592,7 +594,7 @@ which is then independent of $\UU$.
 
 
 \section{The logic of mere propositions}
-\label{subsec:logic-hprop}
+\fakelabel{subsec:logic-hprop}
 %
 % \index{logic!of mere propositions|(}%
 % We mentioned in \cref{sec:types-vs-sets} that in contrast to type theory, which has only one basic notion (types), set-theoretic foundations have two basic notions: sets and propositions.
@@ -608,7 +610,7 @@ which is then independent of $\UU$.
   Thus, the connective ``and'' preserves mere propositions.
 \end{eg}
 
-\begin{eg}\label{thm:isprop-forall}
+\begin{eg}\fakelabel{thm:isprop-forall}
   If $A$ is any type and $B:A\to \type$ is such that for all $x:A$, the type $B(x)$ is a mere proposition, then $\prd{x:A} B(x)$ is a mere proposition.
   The proof is just like \cref{thm:isset-forall} but simpler: given $f,g:\prd{x:A} B(x)$, for any $x:A$ we have $f(x)=g(x)$ since $B(x)$ is a mere proposition.
   But then by function extensionality, we have $f=g$.
@@ -632,7 +634,7 @@ which is then independent of $\UU$.
 %
 
 \section{Propositional truncation}
-\label{subsec:prop-trunc}
+\fakelabel{subsec:prop-trunc}
 
 % \index{truncation!propositional|(defstyle}%
 % \indexsee{type!squash}{truncation, propositional}%
@@ -687,7 +689,7 @@ induced $g:\brck A \to B$ such that $g(\bproj a) \jdeq f(a)$ for all $a:A$.
 % where we deal mostly with sets and mere propositions, it is convenient to use the
 % traditional logical notations to refer only to ``propositionally truncated logic''.
 
-\begin{defn} \label{defn:logical-notation}
+\begin{defn} \fakelabel{defn:logical-notation}
   We define \define{traditional logical notation}
   \indexdef{implication}%
   \indexdef{traditional logical notation}%
@@ -748,7 +750,7 @@ $A$.
 
 
 \section{The axiom of choice}
-\label{sec:axiom-choice}
+\fakelabel{sec:axiom-choice}
 
 % \index{axiom!of choice|(defstyle}%
 % \index{denial|(}%
@@ -769,7 +771,7 @@ and moreover that
 \end{itemize}
 The \define{axiom of choice}
 $\choice{}$ asserts that under these assumptions,
-\begin{equation}\label{eq:ac}
+\begin{equation}\fakelabel{eq:ac}
   \Parens{\prd{x:X} \Brck{\sm{a:A(x)} P(x,a)}}
   \to
   \Brck{\sm{g:\prd{x:X} A(x)} \prd{x:X} P(x,g(x))}.
@@ -788,12 +790,12 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 %
 % In fact, because of \cref{thm:ttac}, this axiom can also be expressed in a simpler form.
 
-\begin{lem}\label{thm:ac-epis-split}
+\begin{lem}\fakelabel{thm:ac-epis-split}
   The axiom of choice~\eqref{eq:ac} is equivalent to the statement that for any set $X$ and any $Y:X\to\type$ such that each $Y(x)$ is a set, we have
   \begin{equation}
     \Parens{\prd{x:X} \Brck{Y(x)}}
     \to
-    \Brck{\prd{x:X} Y(x)}.\label{eq:epis-split}
+    \Brck{\prd{x:X} Y(x)}.\fakelabel{eq:epis-split}
   \end{equation}
 \end{lem}
 %
@@ -825,7 +827,7 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 % See also \cref{ex:acnm,ex:acconn}.
 % However, observe that we cannot relax the requirement that $X$ be a set.
 
-\begin{lem}\label{thm:no-higher-ac}
+\begin{lem}\fakelabel{thm:no-higher-ac}
   There exists a type $X$ and a family $Y:X\to \type$ such that each $Y(x)$ is a set, but such that~\eqref{eq:epis-split} is false.
 \end{lem}
 
@@ -849,14 +851,14 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 % \index{axiom!of choice|)}%
 
 \section{The principle of unique choice}
-\label{sec:unique-choice}
+\fakelabel{sec:unique-choice}
 
 % \index{unique!choice|(defstyle}%
 % \indexsee{axiom!of choice!unique}{unique choice}%
 %
 % The following observation is trivial, but very useful.
 
-\begin{lem}\label{thm:prop-equiv-trunc}
+\begin{lem}\fakelabel{thm:prop-equiv-trunc}
   If $P$ is a mere proposition, then $\eqv P {\brck P}$.
 \end{lem}
 %
@@ -868,7 +870,7 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 %
 % Among its important consequences is the following.
 
-\begin{cor}[The principle of unique choice]\label{cor:UC}
+\begin{cor}[The principle of unique choice]\fakelabel{cor:UC}
   Suppose a type family $P:A\to \type$ such that
   \begin{enumerate}
   \item For each $x$, the type $P(x)$ is a mere proposition, and
@@ -903,7 +905,7 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 
 \stepcounter{section}
 % \section{When are propositions truncated?}
-% \label{subsec:when-trunc}
+% \fakelabel{subsec:when-trunc}
 %
 % \index{logic!of mere propositions|(}%
 % \index{mere proposition|(}%
@@ -989,7 +991,7 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 % \index{logic!of mere propositions|)}%
 
 \section{Contractibility}
-\label{sec:contractibility}
+\fakelabel{sec:contractibility}
 %
 % \index{type!contractible|(defstyle}%
 % \index{contractible!type|(defstyle}%
@@ -1000,7 +1002,7 @@ Of course, this is a direct translation of~\eqref{eq:english-ac} where we read `
 % A type with this property is called \emph{contractible}.
 % Another equivalent definition of contractibility, which is also sometimes convenient, is the following.
 
-\begin{defn}\label{defn:contractible}
+\begin{defn}\fakelabel{defn:contractible}
   A type $A$ is \define{contractible},
   or a \define{singleton},
   \indexdef{type!singleton}%
@@ -1027,12 +1029,12 @@ In other words, the type $\iscontr(A)$ is defined to be
 %   In \cref{sec:connectivity} we will define connectedness as the $n=0$ case of a general notion of $n$-connectedness, and in \cref{ex:connectivity-inductively} the reader is asked to show that this definition is equivalent to having both $\brck{A}$ and $\prd{x,y:A} \brck{x=y}$.
 % \end{rmk}
 
-\begin{lem}\label{thm:contr-unit}
+\begin{lem}\fakelabel{thm:contr-unit}
   For a type $A$, the following are logically equivalent.
   \begin{enumerate}
-  \item $A$ is contractible in the sense of \cref{defn:contractible}.\label{item:contr}
-  \item $A$ is a mere proposition, and there is a point $a:A$.\label{item:contr-inhabited-prop}
-  \item $A$ is equivalent to \unit.\label{item:contr-eqv-unit}
+  \item $A$ is contractible in the sense of \cref{defn:contractible}.\fakelabel{item:contr}
+  \item $A$ is a mere proposition, and there is a point $a:A$.\fakelabel{item:contr-inhabited-prop}
+  \item $A$ is equivalent to \unit.\fakelabel{item:contr-eqv-unit}
   \end{enumerate}
 \end{lem}
 %
@@ -1042,7 +1044,7 @@ In other words, the type $\iscontr(A)$ is defined to be
 %   And we showed~\ref{item:contr-inhabited-prop}$\Rightarrow$\ref{item:contr-eqv-unit} in \cref{thm:inhabprop-eqvunit}, while the converse follows since \unit easily has property~\ref{item:contr-inhabited-prop}.
 % \end{proof}
 
-\begin{lem}\label{thm:isprop-iscontr}
+\begin{lem}\fakelabel{thm:isprop-iscontr}
   For any type $A$, the type $\iscontr(A)$ is a mere proposition.
 \end{lem}
 % \begin{proof}
@@ -1055,7 +1057,7 @@ In other words, the type $\iscontr(A)$ is defined to be
 %   Hence, by \cref{thm:prop-set,thm:isprop-forall}, so is $\prd{x:A}(a'=x)$; thus $\trans{q}{p}=p'$ is automatic.
 % \end{proof}
 
-\begin{cor}\label{thm:contr-contr}
+\begin{cor}\fakelabel{thm:contr-contr}
   If $A$ is contractible, then so is $\iscontr(A)$.
 \end{cor}
 % \begin{proof}
@@ -1065,7 +1067,7 @@ In other words, the type $\iscontr(A)$ is defined to be
 % Like mere propositions, contractible types are preserved by many type constructors.
 % For instance, we have:
 
-\begin{lem}\label{thm:contr-forall}
+\begin{lem}\fakelabel{thm:contr-forall}
   If $P:A\to\type$ is a type family such that each $P(a)$ is contractible, then $\prd{x:A} P(x)$ is contractible.
 \end{lem}
 % \begin{proof}
@@ -1090,7 +1092,7 @@ and a homotopy $\epsilon:\prd{y:B} (r(s(y))=y)$; then we say that $B$ is a \defi
 % \indexdef{retract!of a type}
 of $A$.
 
-\begin{lem}\label{thm:retract-contr}
+\begin{lem}\fakelabel{thm:retract-contr}
   If $B$ is a retract of $A$, and $A$ is contractible, then so is $B$.
 \end{lem}
 % \begin{proof}
@@ -1108,7 +1110,7 @@ of $A$.
 % encapsulates the based path induction principle for identity types.
 
 
-\begin{lem}\label{thm:contr-paths}
+\begin{lem}\fakelabel{thm:contr-paths}
   For any $A$ and any $a:A$, the type $\sm{x:A} (a=x)$ is contractible.
 \end{lem}
 % \begin{proof}
@@ -1121,11 +1123,11 @@ of $A$.
 % When this happens, it can allow us to simplify a complicated construction up to equivalence, using the informal principle that contractible data can be freely ignored.
 % This principle consists of many lemmas, most of which we leave to the reader; the following is an example.
 
-\begin{lem}\label{thm:omit-contr}
+\begin{lem}\fakelabel{thm:omit-contr}
   Let $P:A\to\type$ be a type family.
   \begin{enumerate}
-  \item If each $P(x)$ is contractible, then $\sm{x:A} P(x)$ is equivalent to $A$.\label{item:omitcontr1}
-  \item If $A$ is contractible with center $a$, then $\sm{x:A} P(x)$ is equivalent to $P(a)$.\label{item:omitcontr2}
+  \item If each $P(x)$ is contractible, then $\sm{x:A} P(x)$ is equivalent to $A$.\fakelabel{item:omitcontr1}
+  \item If $A$ is contractible with center $a$, then $\sm{x:A} P(x)$ is equivalent to $P(a)$.\fakelabel{item:omitcontr2}
   \end{enumerate}
 \end{lem}
 % \begin{proof}
@@ -1138,7 +1140,7 @@ of $A$.
 
 % Another reason contractible types are interesting is that they extend the ladder of $n$-types mentioned in \cref{sec:basics-sets} downwards one more step.
 
-\begin{lem}\label{thm:prop-minusonetype}
+\begin{lem}\fakelabel{thm:prop-minusonetype}
   A type $A$ is a mere proposition if and only if for all $x,y:A$, the type $\id[A]xy$ is contractible.
 \end{lem}
 % \begin{proof}
@@ -1192,84 +1194,84 @@ of $A$.
 
 % \sectionExercises
 %
-\begin{ex}\label{ex:equiv-functor-set}
+\begin{ex}\fakelabel{ex:equiv-functor-set}
   Prove that if $\eqv A B$ and $A$ is a set, then so is $B$.
 \end{ex}
 
-\begin{ex}\label{ex:isset-coprod}
+\begin{ex}\fakelabel{ex:isset-coprod}
   Prove that if $A$ and $B$ are sets, then so is $A+B$.
 \end{ex}
 
-\begin{ex}\label{ex:isset-sigma}
+\begin{ex}\fakelabel{ex:isset-sigma}
   Prove that if $A$ is a set and $B:A\to \type$ is a type family such that $B(x)$ is a set for all $x:A$, then $\sm{x:A} B(x)$ is a set.
 \end{ex}
 
-\begin{ex}\label{ex:prop-endocontr}
+\begin{ex}\fakelabel{ex:prop-endocontr}
   Show that $A$ is a mere proposition if and only if $A\to A$ is contractible.
 \end{ex}
 
-\begin{ex}\label{ex:prop-inhabcontr}
+\begin{ex}\fakelabel{ex:prop-inhabcontr}
   Show that $\eqv{\isprop(A)}{(A\to\iscontr(A))}$.
 \end{ex}
 
-\begin{ex}\label{ex:lem-mereprop}
+\begin{ex}\fakelabel{ex:lem-mereprop}
   Show that if $A$ is a mere proposition, then so is $A+(\neg A)$.
   Thus, there is no need to insert a propositional truncation in~\eqref{eq:lem}.
 \end{ex}
 
-\begin{ex}\label{ex:disjoint-or}
+\begin{ex}\fakelabel{ex:disjoint-or}
   More generally, show that if $A$ and $B$ are mere propositions and $\neg(A\times B)$, then $A+B$ is also a mere proposition.
 \end{ex}
 
-\begin{ex}\label{ex:hprop-iff-equiv}
+\begin{ex}\fakelabel{ex:hprop-iff-equiv}
   Show that if $A$ and $B$ are mere propositions such that $A\to B$ and $B\to A$, then $\eqv A B$.
 \end{ex}
 
-\begin{ex}\label{ex:isprop-isprop}
+\begin{ex}\fakelabel{ex:isprop-isprop}
   Show that for any type $A$, the types $\isprop(A)$ and $\isset(A)$ are mere propositions.
 \end{ex}
 
-\begin{ex}\label{ex:prop-eqvtrunc}
+\begin{ex}\fakelabel{ex:prop-eqvtrunc}
   Show that if $A$ is already a mere proposition, then $\eqv A{\brck{A}}$.
 \end{ex}
 
-\begin{ex}\label{ex:brck-qinv}
+\begin{ex}\fakelabel{ex:brck-qinv}
   Assuming that some type $\isequiv(f)$ satisfies conditions~\ref{item:be1}--\ref{item:be3} of \cref{sec:basics-equivalences}, show that the type $\brck{\qinv(f)}$ satisfies the same conditions and is equivalent to $\isequiv(f)$.
 \end{ex}
 
-\begin{ex}\label{ex:lem-impl-prop-equiv-bool}
+\begin{ex}\fakelabel{ex:lem-impl-prop-equiv-bool}
   Show that if \LEM{} holds, then the type $\prop \defeq \sm{A:\type} \isprop(A)$ is equivalent to \bool.
 \end{ex}
 
-\begin{ex}\label{ex:lem-impred}
+\begin{ex}\fakelabel{ex:lem-impred}
   Show that if $\UU_{i+1}$ satisfies \LEM{}, then the canonical inclusion $\prop_{\UU_i} \to \prop_{\UU_{i+1}}$ is an equivalence.
 \end{ex}
 
-\begin{ex}\label{ex:not-brck-A-impl-A}
+\begin{ex}\fakelabel{ex:not-brck-A-impl-A}
   Show that it is not the case that for all $A:\type$ we have $\brck{A} \to A$.
   (However, there can be particular types for which $\brck{A}\to A$.
   \cref{ex:brck-qinv} implies that $\qinv(f)$ is such.)
 \end{ex}
 
-\begin{ex}\label{ex:lem-impl-simple-ac}
+\begin{ex}\fakelabel{ex:lem-impl-simple-ac}
   \index{axiom!of choice}%
   Show that if \LEM{} holds, then for all $A:\type$ we have $\bbrck{(\brck A \to A)}$.
   (This property is a very simple form of the axiom of choice, which can fail in the absence of \LEM{}; see~\cite{krausgeneralizations}.)
 \end{ex}
 
-\begin{ex}\label{ex:naive-lem-impl-ac}
+\begin{ex}\fakelabel{ex:naive-lem-impl-ac}
   We showed in \cref{thm:not-lem} that the following naive form of \LEM{} is inconsistent with univalence:
   \[ \prd{A:\type} (A+(\neg A)) \]
   In the absence of univalence, this axiom is consistent.
   However, show that it implies the axiom of choice~\eqref{eq:ac}.
 \end{ex}
 
-\begin{ex}\label{ex:lem-brck}
+\begin{ex}\fakelabel{ex:lem-brck}
   Show that assuming \LEM{}, the double negation $\neg \neg A$ has the same universal property as the propositional truncation $\brck A$, and is therefore equivalent to it.
   Thus, under \LEM{}, the propositional truncation can be defined rather than taken as a separate type former.
 \end{ex}
 
-\begin{ex}\label{ex:impred-brck}
+\begin{ex}\fakelabel{ex:impred-brck}
   \index{propositional!resizing}%
   Show that if we assume propositional resizing as in \cref{subsec:prop-subsets}, then the type
   \[\prd{P:\prop} \Parens{(A\to P)\to P}\]
@@ -1277,43 +1279,43 @@ of $A$.
   Thus, we can also define the propositional truncation in this case.
 \end{ex}
 
-\begin{ex}\label{ex:lem-impl-dn-commutes}
+\begin{ex}\fakelabel{ex:lem-impl-dn-commutes}
   Assuming \LEM{}, show that double negation commutes with universal quantification of mere propositions over sets.
   That is, show that if $X$ is a set and each $Y(x)$ is a mere proposition, then \LEM{} implies
   \begin{equation}
-    \eqv{\Parens{\prd{x:X} \neg\neg Y(x)}}{\Parens{\neg\neg \prd{x:X} Y(x)}}.\label{eq:dnshift}
+    \eqv{\Parens{\prd{x:X} \neg\neg Y(x)}}{\Parens{\neg\neg \prd{x:X} Y(x)}}.\fakelabel{eq:dnshift}
   \end{equation}
   Observe that if we assume instead that each $Y(x)$ is a set, then~\eqref{eq:dnshift} becomes equivalent to the axiom of choice~\eqref{eq:epis-split}.
 \end{ex}
 
-\begin{ex}\label{ex:prop-trunc-ind}
+\begin{ex}\fakelabel{ex:prop-trunc-ind}
   \index{induction principle!for truncation}%
   Show that the rules for the propositional truncation given in \cref{subsec:prop-trunc} are sufficient to imply the following induction principle: for any type family $B:\brck A \to \type$ such that each $B(x)$ is a mere proposition, if for every $a:A$ we have $B(\bproj a)$, then for every $x:\brck A$ we have $B(x)$.
 \end{ex}
 
-\begin{ex}\label{ex:lem-ldn}
+\begin{ex}\fakelabel{ex:lem-ldn}
   Show that the law of excluded middle~\eqref{eq:lem} and the law of double negation~\eqref{eq:ldn} are logically equivalent.
 \end{ex}
 
-\begin{ex}\label{ex:decidable-choice}
+\begin{ex}\fakelabel{ex:decidable-choice}
   Suppose $P:\nat\to\type$ is a decidable family (see \cref{defn:decidable-equality}\ref{item:decidable-equality2}) of mere propositions.
   Prove that
   \[ \Brck{\sm{n:\nat} P(n)} \;\to\; \sm{n:\nat}P(n).\]
 \end{ex}
 
-\begin{ex}\label{ex:omit-contr2}
+\begin{ex}\fakelabel{ex:omit-contr2}
   Prove \cref{thm:omit-contr}\ref{item:omitcontr2}: if $A$ is contractible with center $a$, then $\sm{x:A} P(x)$ is equivalent to $P(a)$.
 \end{ex}
 
-\begin{ex}\label{ex:isprop-equiv-equiv-bracket}
+\begin{ex}\fakelabel{ex:isprop-equiv-equiv-bracket}
   Prove that $\isprop(P) \simeq (P \simeq \brck P)$.
 \end{ex}
 
-\begin{ex}\label{ex:finite-choice}
+\begin{ex}\fakelabel{ex:finite-choice}
   As in classical set theory, the finite version of the axiom of choice is a theorem.  Prove that the axiom of choice \eqref{eq:ac} holds when $X$ is a finite type $\Fin(n)$ (as defined in \cref{ex:fin}).
 \end{ex}
 
-\begin{ex}\label{ex:decidable-choice-strong}
+\begin{ex}\fakelabel{ex:decidable-choice-strong}
   Show that the conclusion of \cref{ex:decidable-choice} is true if $P:\nat\to\type$ is any decidable family.
 \end{ex}
 

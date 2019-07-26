@@ -217,3 +217,4 @@ TSWLatexianTemp*
 *-tags.tex
 *.DS_Store
 src/*.pdf
+src/auto*

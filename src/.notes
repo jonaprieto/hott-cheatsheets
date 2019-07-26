@@ -2,7 +2,7 @@ Using the file hott-book.labels to provide all the labels,
 the first attempt to fix the cross-refs issue was to change all the usages of \cref by \ref.
 Then, comment all the labels definition, I used this in my editor:
 
-regex: ((?:\\label\{(?:[a-zA-z0-9:-]|\?)+\}\s*)+)(.*)?
+regex: ((?:\\fakelabel\{(?:[a-zA-z0-9:-]|\?)+\}\s*)+)(.*)?
 by:    $2\% -- (original) -> $1$2
 
 Replace all matches in: /Users/jonaprieto/repositories/hott-cheatsheet,-*.sty

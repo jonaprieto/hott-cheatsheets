@@ -38,7 +38,8 @@ clean-auxlatex:
 .phony: clean
 clean:
 	- @rm -f assets/* docs/*
-	- make clean-auxlatex
+	- @rm -f src/auto-*
+	- @make clean-auxlatex
 
 .phony: hard
 hard:

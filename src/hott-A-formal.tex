@@ -9,13 +9,14 @@
 
 \appendix
 \renewcommand{\thechapter}{A}
+
 % \setcounter{chapter}{3} % -- TODO Change this!
 
 % !TeX root = hott-online.tex
 
 % \titleformat{\chapter}[display]{\fontsize{23}{25}\fontseries{m}\fontshape{it}\selectfont}{\chaptertitlename}{20pt}{\fontsize{35}{35}\fontseries{b}\fontshape{n}\selectfont}
 % \chapter{Formal typea theory}
-% \label{cha:rules}
+% \fakelabel{cha:rules}
 %
 % \index{formal!type theory|(}%
 % \index{type theory!formal|(}%
@@ -60,7 +61,7 @@
 % is customary in much type-theoretic literature.
 %
 % \section*{Preliminaries}
-% \label{sec:formal-prelim}
+% \fakelabel{sec:formal-prelim}
 %
 %
 % In \cref{cha:typetheory}, we presented the two basic \define{judgments}
@@ -170,7 +171,7 @@
 % \ldots, A_n$, $a$, and $A$.
 
 \section{The first presentation}
-\label{sec:syntax-informally}
+\fakelabel{sec:syntax-informally}
 %
 % The objects and types of our type theory may be written as terms using
 % the following syntax, which is an extension of $\lambda$-calculus with
@@ -460,7 +461,7 @@ with defining equation
 \]
 %
 \section{The second presentation}
-% \label{sec:syntax-more-formally}
+% \fakelabel{sec:syntax-more-formally}
 %
 In this section, there are three kinds of judgments
 \begin{mathpar}
@@ -511,7 +512,7 @@ rules, with the judgment at the root of the tree.
 % \end{mathpar}
 %
 \subsection{Contexts}
-\label{subsec:contexts}
+\fakelabel{subsec:contexts}
 %
 % %\index{context}%
 A context is a list
@@ -641,7 +642,7 @@ Each universe is contained in the next, and any type in $\UU_i$ is also in $\UU_
 % implies $\oftp\Gamma{a}{A}$ and $\oftp\Gamma{b}{A}$.
 %
 \subsection{Dependent function types (\texorpdfstring{$\Pi$}{Π}-types)}
-% \label{sec:more-formal-pi}
+% \fakelabel{sec:more-formal-pi}
 %
 % %\index{type!dependent function}%
 % %\index{type!function}%
@@ -708,7 +709,7 @@ For the dependent function type these rules are:
 % that the omitted type $A$ should be filled in appropriately before type-checking.
 %
 \subsection{Dependent pair types (\texorpdfstring{$\Sigma$}{Σ}-types)}
-\label{sec:more-formal-sigma}
+\fakelabel{sec:more-formal-sigma}
 %
 % %\index{type!dependent pair}%
 % %\index{type!product}%
@@ -821,7 +822,7 @@ For the dependent function type these rules are:
 % %\index{type!empty|)}%
 %
 \subsection{The unit type \texorpdfstring{$\unit$}{1}}
-\label{sec:more-formal-unit}
+\fakelabel{sec:more-formal-unit}
 %
 % %\index{type!unit|(}%
 %
@@ -903,7 +904,7 @@ For the dependent function type these rules are:
 %
 \subsection{Identity types}
 %
-% \label{sec:more-formal-identity}
+% \fakelabel{sec:more-formal-identity}
 %
 % %\index{type!identity|(}%
 %
@@ -971,7 +972,7 @@ For the dependent function type these rules are:
 % perform elaboration; see \cite{Coq,norell2007towards} for further discussion.
 
 \section{Homotopy type theory}
-\label{sec:hott-features}
+\fakelabel{sec:hott-features}
 
 % In this section we state the additional axioms of homotopy type theory which distinguish it from standard Martin-L\"{o}f type theory: function extensionality, the
 % univalence axiom, and higher inductive types. We state them in the style
@@ -1090,7 +1091,7 @@ In $\ind{\Sn^1}$, $x$ is bound in $C$. The notation ${\dpath C \lloop b b}$ for 
 % Using standard techniques from type theory, it is possible to show that the system in \cref{sec:syntax-informally}
 % has the following properties:
 %
-\begin{thm}\label{thm:conversion-preserves-typing}
+\begin{thm}\fakelabel{thm:conversion-preserves-typing}
 If $A : \UU$ and $A \conv A'$ then $A' : \UU$.
 If $t:A$ and $t \conv t'$ then $t':A$.
 \end{thm}
@@ -1107,7 +1108,7 @@ If $t:A$ and $t \conv t'$ then $t':A$.
 % if some (respectively, every), sequence of rewriting steps from the term
 % terminates.
 %
-\begin{thm}\label{thm:strong-normalization}
+\begin{thm}\fakelabel{thm:strong-normalization}
 If $A : \UU$ then $A$ is strongly normalizable.
 If $t:A$ then $A$ and $t$ are strongly normalizable.
 \end{thm}
@@ -1125,7 +1126,7 @@ If $t:A$ then $A$ and $t$ are strongly normalizable.
 % normal terms may be omitted if empty, for instance, as with $\N$). In fact, we
 % can explicitly describe all normal forms:
 %
-\begin{lem}\label{lem:normal-forms}
+\begin{lem}\fakelabel{lem:normal-forms}
   The terms in normal form can be described by the following syntax:
   %
   \begin{align*}
@@ -1192,7 +1193,7 @@ The property of being a proof in the system in \cref{sec:syntax-informally} is d
 %
 % %\index{metatheory|)}%
 %
-% \sectionNotes\label{subsec:general-remarks}
+% \sectionNotes\fakelabel{subsec:general-remarks}
 %
 % % This presentation is strongly inspired by two  Martin-L\"of 1972 and 1973.
 %

@@ -18,8 +18,8 @@
 
 \usepackage{color,xcolor,graphicx,overpic}
 \definecolor{darkgreen}{rgb}{0,0.45,0}
-\everymath{\bfseries\color{darkgreen}}
-\everydisplay{\bfseries\color{darkgreen}}
+\everymath{\color{darkgreen}}
+\everydisplay{\color{darkgreen}}
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -90,6 +90,7 @@ available on~\url{http://github.com/jonaprieto/hott-cheatsheets}.
 \usepackage{subfiles}
 \newcommand{\onlyinsubfile}[1]{#1}
 \newcommand{\notinsubfile}[1]{}
+\newcommand{\fakelabel}[1]{}
 
 \usepackage{hott}
 \input{hott-book.labels}
@@ -102,22 +103,42 @@ available on~\url{http://github.com/jonaprieto/hott-cheatsheets}.
 \renewcommand{\notinsubfile}[1]{#1}
 
 \setcounter{section}{0}
-\subfile{hott-basics.tex}
+\subfile{hott-02-basics.tex}
 \newpage
 
 \setcounter{section}{0}
-\subfile{hott-logic.tex}
+\subfile{hott-03-logic.tex}
 \newpage
 
 \setcounter{section}{0}
-\subfile{hott-equivalences.tex}
+\subfile{hott-04-equivalences.tex}
 \newpage
 
 \setcounter{section}{0}
-\subfile{hott-categories.tex}
+\subfile{hott-05-induction.tex}
 \newpage
 
 \setcounter{section}{0}
-\subfile{hott-formal.tex}
+\subfile{hott-06-hits.tex}
+\newpage
+
+\setcounter{section}{0}
+\subfile{hott-07-hlevels.tex}
+\newpage
+
+\setcounter{section}{0}
+\subfile{hott-08-homotopy.tex}
+\newpage
+
+\setcounter{section}{0}
+\subfile{hott-09-categories.tex}
+\newpage
+
+\setcounter{section}{0}
+\subfile{hott-10-set-theory.tex}
+\newpage
+
+\setcounter{section}{0}
+\subfile{hott-A-formal.tex}
 
 \end{document}

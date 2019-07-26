@@ -7,8 +7,8 @@ import sys
 
 tex = [i for i in list(Path(".").glob('hott-*.tex'))]
 
-includeblocks = ["defn", "rmk", "eg", "thm", "cor", "lem"]
-for i in tex[:1]:
+includeblocks = ["defn", "rmk", "eg", "thm", "cor", "lem", "ex"]
+for i in tex:
   if i.is_file():
     lines = [line.rstrip('\n') for line in open(i, 'r')]
     with open("auto-" + str(i), 'w') as outf:
@@ -18,7 +18,7 @@ for i in tex[:1]:
 
       line = ""
       I = 0
-      while I < len(lines) and not "renewcommand{\\thechapter}" in line:
+      while I < len(lines) and not "setcounter{chapter}" in line:
         line = lines[I]
         print(line, file=outf)
         I = I + 1

@@ -870,9 +870,9 @@
 
 \newcommand{\mentalpause}{\medskip} % Use for "mental" pause, instead of \smallskip or \medskip
 
-%% Use \symlabel instead of \label to mark a pageref that you need in the index of symbols
+%% Use \symlabel instead of \fakelabel to mark a pageref that you need in the index of symbols
 \newcounter{symindex}
-\newcommand{\symlabel}[1]{\refstepcounter{symindex}\label{#1}}
+\newcommand{\symlabel}[1]{\refstepcounter{symindex}\fakelabel{#1}}
 
 
 \endinput
