@@ -2,7 +2,8 @@ sheets := $(wildcard src/hott-*.tex)
 pdfs   := $(subst src/,docs/,$(subst .tex,.pdf,$(sheets)))
 thumbnails := $(subst src/,assets/,$(subst .tex,.png,$(sheets)))
 
-all: $(pdfs) $(thumbnails) src/hott.sty
+# all: $(pdfs) $(thumbnails) src/hott.sty
+all: $(pdfs)
 
 docs/%.pdf : src/%.tex
 	- @rm -f $@

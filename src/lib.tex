@@ -1,9 +1,9 @@
 %  Based on `macros.tex` from the sources of HoTT's book.
 
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hott}[2018/06/01 LaTeX class]
+% \NeedsTeXFormat{LaTeX2e}
+% \ProvidesClass{hott}[2018/06/01 LaTeX class]
 
-\RequirePackage{hyperref}
+% \RequirePackage{hyperref}
 
 %%% For table {tab:theorems}
 \usepackage{pifont}
@@ -13,7 +13,7 @@
 \usepackage{mathpazo}
 \usepackage[scaled=0.95]{helvet}
 \usepackage{courier}
-\linespread{0.9} % Palatino looks better with this
+\linespread{1.05} % Palatino looks better with this
 
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.png}
@@ -644,7 +644,7 @@
 \ifdefined\fact
   \renewcommand{\fact}{\mathsf{fact}}
 \else
-  \newcommand{\mcode}{\ensuremath{\mathsf{code}}\xspace}
+  \newcommand{\fact}{\ensuremath{\mathsf{code}}\xspace}
 \fi
 
 %%% Macros for homotopy
@@ -780,9 +780,9 @@
 
 % Display format for sections
 \crefformat{section}{\S#2#1#3}
-\Crefformat{section}{Sec.~#2#1#3}
+\Crefformat{section}{S.~#2#1#3}
 \crefrangeformat{section}{\S\S#3#1#4--#5#2#6}
-\Crefrangeformat{section}{Sec.~#3#1#4--#5#2#6}
+\Crefrangeformat{section}{S.~#3#1#4--#5#2#6}
 \crefmultiformat{section}{\S\S#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
 \Crefmultiformat{section}{Sect.~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
 \crefrangemultiformat{section}{\S\S#3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}{, #3#1#4--#5#2#6}{ and~#3#1#4--#5#2#6}
