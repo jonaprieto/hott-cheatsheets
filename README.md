@@ -1,77 +1,64 @@
-# HoTT Cheatsheets [![Build Status](https://travis-ci.org/jonaprieto/hott-cheatsheets.svg?branch=master)](https://travis-ci.org/jonaprieto/hott-cheatsheets)
+# HoTT Cheatsheets
 
-This might help you to read the HoTT Book, a reference to keep in your
-pocket. 
+[![Build](https://github.com/jonaprieto/hott-cheatsheets/actions/workflows/ci.yml/badge.svg)](https://github.com/jonaprieto/hott-cheatsheets/actions/workflows/ci.yml)
 
-#### Available Cheatsheets
+A pocket-sized companion for reading the
+[HoTT Book](https://homotopytypetheory.org/book/).
+Each cheatsheet condenses a chapter into a dense, printable reference sheet.
 
-All cheatsheets:
+## Cheatsheets
 
-  - **Direct link: [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.10/hott-all.pdf)**
+| Chapter | PDF |
+|---------|-----|
+| All-in-one | [hott-all.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/latest/download/hott-all.pdf) |
+| Basics (Ch. 2) | [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/latest/download/hott-basics.pdf) |
+| Sets and Logic (Ch. 3) | [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/latest/download/hott-logic.pdf) |
+| Equivalences (Ch. 4) | [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/latest/download/hott-equivalences.pdf) |
+| Categories (Ch. 9) | [hott-categories.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/latest/download/hott-categories.pdf) |
+| Formal Type Theory (Appendix) | [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/latest/download/hott-formal.pdf) |
 
-Separately:
+## Building locally
 
-- **Basics** (Chapter 2):
-  - **Direct link: [hott-basics.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.10/hott-basics.pdf)**
+**Requirements:** TeX Live (2020+), `latexmk`, `ghostscript` (for thumbnails).
 
-  ![](assets/hott-basics.png)
+With [just](https://github.com/casey/just):
 
-- **Sets and logic** (Chapter 3):
-  - **Direct link: [hott-logic.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.10/hott-logic.pdf)**
-
-  ![](assets/hott-logic.png)
-
-- **Equivalences** (Chapter 4):
-  - **Direct link: [hott-equivalences.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.10/hott-equivalences.pdf)**
-
-  ![](assets/hott-equivalences.png)
-
-- **Categories** (Chapter 9): (missing some references)
-  - **Direct link: [hott-categories.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.10/hott-categories.pdf)**
-
-  ![](assets/hott-categories.png)
-
-- **Formal type theory** (Appendix):
-  - **Direct link: [hott-formal.pdf](https://github.com/jonaprieto/hott-cheatsheets/releases/download/v0.1.10/hott-formal.pdf)**
-
-  ![](assets/hott-formal.png)
-
------------------------------------------------------------------------------
-
-#### Building
-
-- A fairly new version of LaTeX.
-[Texlive](http://www.tug.org/texlive/) 2012 is confirmed to work. You might need
-to install some packages; see `hott.sty` for packages that are used by the book.
-
-[BasicTeX](http://www.tug.org/mactex/morepackages.html), which is a minimalistic
-version of MacTeX, is confirmed to work once the following packages have been
-installed: `tlmgr`, `install`, `braket`, `comment`, `courier`, `enumitem`,
-`helvetic`, `mathpazo`, `nextpage`, `ntheorem`, `palatino`, `rsfs`, `stmaryrd`,
-`symbol`, `titlesec`, `wallpaper`, `wasy`, `wasysym`, `xstring`, `zapfding`, `gitinfo2`.
-
-
-- If you have `make` utility and `latexmk` just
-run `make` in the root directory of this repository.
-
-
-#### License
-
-This work is licensed under the same license of the HoTT book, i.e.:
-
-- [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
-
-#### References
-
-* HoTT book from the website [homotopytypetheory.org](https://homotopytypetheory.org/book/).
-
-```
-    @Book{hottbook,
-      author =    {The {Univalent Foundations Program}},
-      title =     {Homotopy Type Theory: Univalent Foundations of Mathematics},
-      publisher = {\url{https://homotopytypetheory.org/book}},
-      address =   {Institute for Advanced Study},
-      year =      2013}
+```sh
+just          # build PDFs and thumbnails
+just pdfs     # build PDFs only
+just clean    # remove all build artifacts
+just watch    # rebuild on file changes (requires fswatch)
 ```
 
-- The LaTeX sources: [HoTT/book](https://github.com/HoTT/book)
+Or directly:
+
+```sh
+latexmk -cd -f -pdf -interaction=nonstopmode -output-directory=./../docs src/hott-all.tex
+```
+
+## Contributing
+
+All changes go through pull requests. The `main` branch is protected — CI must
+pass before merging. Each PR automatically builds the PDFs and uploads them as
+downloadable artifacts (kept for 14 days).
+
+## About `hott.sty`
+
+The custom style file `src/hott.sty` is based on `macros.tex` from the
+[HoTT/book](https://github.com/HoTT/book) LaTeX sources. The upstream file has
+been essentially frozen since 2015, and our copy is a faithful mirror with
+adaptations for the cheatsheet format (narrow-column layout macros, compact
+spacing).
+
+## License
+
+[Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0/)
+— same as the HoTT Book.
+
+## References
+
+> The Univalent Foundations Program.
+> *Homotopy Type Theory: Univalent Foundations of Mathematics.*
+> Institute for Advanced Study, 2013.
+> [homotopytypetheory.org/book](https://homotopytypetheory.org/book/)
+> — LaTeX sources: [HoTT/book](https://github.com/HoTT/book)
