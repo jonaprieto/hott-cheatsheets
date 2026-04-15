@@ -1,0 +1,101 @@
+name: build-pdfs
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+jobs:
+  build-pdfs:
+    runs-on: ubuntu-latest
+    container:
+      image: texlive/texlive:latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build PDFs
+        run: |
+          mkdir -p docs
+          for f in src/hott-*.tex; do
+            echo "::group::Building $f"
+            # latexmk -f forces through non-fatal errors (e.g. mathpartir
+            # halign warnings) but still exits non-zero; we ignore its exit
+            # code and verify PDFs in the next step.
+            latexmk -cd -f -pdf -interaction=nonstopmode -synctex=1 \
+              -output-directory=./../docs \
+              "$f" || true
+            echo "::endgroup::"
+          done
+
+      - name: Verify PDFs were generated
+        run: |
+          expected="hott-all hott-basics hott-categories hott-equivalences hott-formal hott-logic"
+          for name in $expected; do
+            if [ ! -f "docs/$name.pdf" ]; then
+              echo "::error::Missing expected PDF: docs/$name.pdf"
+              exit 1
+            fi
+            echo "OK: docs/$name.pdf ($(stat -c%s "docs/$name.pdf") bytes)"
+          done
+
+      - name: Generate thumbnails
+        run: |
+          mkdir -p assets
+          for pdf in docs/hott-*.pdf; do
+            name=$(basename "$pdf" .pdf)
+            gs -sDEVICE=png16m \
+               -r1200 \
+               -dPDFFitPage=true \
+               -dDEVICEWIDTHPOINTS=250 \
+               -dDEVICEHEIGHTPOINTS=150 \
+               -dDownScaleFactor=4 \
+               -sOutputFile=assets/$name.png \
+               -dLastPage=1 \
+               -dBATCH -dNOPAUSE \
+               "$pdf"
+          done
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hott-cheatsheets-pdfs
+          path: docs/*.pdf
+          retention-days: 14
+
+      - name: Upload thumbnail artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hott-cheatsheets-thumbnails
+          path: assets/*.png
+          retention-days: 14
+
+  release:
+    needs: build-pdfs
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: hott-cheatsheets-pdfs
+          path: docs/
+
+      - name: Download thumbnails
+        uses: actions/download-artifact@v4
+        with:
+          name: hott-cheatsheets-thumbnails
+          path: assets/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            docs/*.pdf
+            assets/*.png
+          generate_release_notes: true
